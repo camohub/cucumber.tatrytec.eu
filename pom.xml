@@ -82,7 +82,7 @@
             <artifactId>allure-selenide</artifactId>
             <version>2.13.8</version>
         </dependency>
-        <!-- Library to load config file -->
+        <!-- Library to load application.conf file -->
         <dependency>
             <groupId>com.typesafe</groupId>
             <artifactId>config</artifactId>
