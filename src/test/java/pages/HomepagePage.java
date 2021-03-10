@@ -18,9 +18,9 @@ public class HomepagePage extends BasePage
     }
 
 
-    public void testHeader() throws InterruptedException
+    public void testHeader()
     {
-        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.euuu"));
+        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"));
     }
 
 
@@ -33,7 +33,7 @@ public class HomepagePage extends BasePage
     public void testMenu()
     {
         ElementsCollection sideMenu = $$("#sideMenu li")
-                .shouldBe( sizeGreaterThan(40) )
+                .shouldBe( sizeGreaterThan(4) )
                 .shouldHave( itemWithText("Najnovšie") )
                 .shouldHave( itemWithText("Prihlásiť") )
                 .shouldHave( itemWithText("Registrovať") );
@@ -42,7 +42,7 @@ public class HomepagePage extends BasePage
 
     public void testPagination()
     {
-        ElementsCollection pagination = $$("ul.pagination li a")
+        ElementsCollection pagination = $$("ul.pagination li")
                 .shouldBe( sizeGreaterThan(2) );
         pagination.get(1).shouldHave( cssClass("active") );
     }

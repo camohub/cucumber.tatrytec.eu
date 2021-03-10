@@ -4,6 +4,9 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byName;
@@ -16,19 +19,33 @@ public class LoginPage extends BasePage
 
     public LoginPage()
     {
-        open(OPEN_URL);
+        open("");
         page(this);
     }
 
 
-    public void fillLoginForm(String email, String pass)
+    public void openLoginModal()
     {
         $("#sideMenu").find(byAttribute("data-target", "#loginModal")).click();
-
         SelenideElement modal = $("#loginModal").should(appear);
-        modal.find( byName("email") ).val(email);
-        modal.find( byName("password") ).val(pass);
-        modal.find( byAttribute("type", "submit") ).click();
+    }
+
+
+    public void fillEmail(String email)
+    {
+        $("#loginModal").find( byName("email") ).val(email);
+    }
+
+
+    public void fillPassword(String password)
+    {
+        $("#loginModal").find( byName("password") ).val(password);
+    }
+
+
+    public void sendForm()
+    {
+        $("#loginModal").find( byAttribute("type", "submit") ).click();
     }
 
 

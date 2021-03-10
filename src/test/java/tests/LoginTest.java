@@ -38,7 +38,9 @@ public class LoginTest extends BaseTest
     {
         LoginPage loginPage = new LoginPage();
 
-        loginPage.fillLoginForm(email, passwrod);
+        loginPage.fillEmail(email);
+        loginPage.fillPassword(passwrod);
+        loginPage.sendForm();
         loginPage.checkLoginResponse(cssSelector, message);
     }
 

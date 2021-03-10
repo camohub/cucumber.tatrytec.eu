@@ -24,29 +24,29 @@ public class BaseTest
 {
 
     // This is the JUnit way how to catch fail event.
-    @Rule
-    public TestWatcher failWatcher = new TestWatcher();
+    //@Rule
+    //public TestWatcher failWatcher = new TestWatcher();
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
-    //@Rule
-    //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
+    @Rule
+    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
 
     // Create test report as table.
     @Rule
     public TextReport textReport = new TextReport();
 
     // Reports all failed tests not only the first one.
-    @Rule
-    public SoftAsserts softAsserts = new SoftAsserts();
+    //@Rule
+    //public SoftAsserts softAsserts = new SoftAsserts();
 
 
     static {
         Configuration.remote = "http://127.0.0.1:4444/wd/hub";
         Configuration.baseUrl = "https://tatrytec.eu";
-        Configuration.assertionMode = AssertionMode.SOFT;  // Is able to use it on Class level.
+        //Configuration.assertionMode = AssertionMode.SOFT;  // Is able to use it on Class level.
         Configuration.startMaximized = true;
-        Configuration.headless = true;
-        Configuration.screenshots = false;
+        //Configuration.headless = true;
+        //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
     }
 
@@ -56,7 +56,7 @@ public class BaseTest
     {
         //(new WebDriverService()).setDriver();
 
-        failWatcher.setTestClass(getClass().getSimpleName());
+        //failWatcher.setTestClass(getClass().getSimpleName());
     }
 
 
