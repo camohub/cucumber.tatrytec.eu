@@ -9,19 +9,24 @@ Driver
 ====================
 Selenide má vlastnú implementáciu drivera. 
 Driver verzia sa dynamicky nastaví sáma podľa nainštalovaného brovsera.
+Driver treba s Cucumberom zavrieť cez cucumber.@After
 
 
 Browser konfigurácia
 ====================
-Nastavenia browsera je v triede BaseTest
 
 
 Konfigurácia
 ====================
-Configuration.remote = "http://127.0.0.1:4444/wd/hub";
-Configuration.baseUrl = "https://tatrytec.eu";
-Configuration.assertionMode = AssertionMode.SOFT;
-Configuration.startMaximized = true;
-Configuration.headless = true;
-Configuration.assertionMode = AssertionMode.SOFT;  // Toto sa väčšinou nastavuje pre každú triedu osobintne.
+Nastavenia browsera je v triede BasePage.static
+Knižnica com.typesafe.config načíta konfiguráciu zo súboru
 
+
+Cucumber
+====================
+- features
+    - parametre - dobrá ukážka parametrov je Login.feature
+- steps 
+    - @Before @After, príklad s parametrami je LoginSteps 
+- hooks 
+    - @Before @After

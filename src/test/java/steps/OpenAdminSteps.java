@@ -6,39 +6,39 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.AdminPage;
 import pages.HomepagePage;
-import pages.LoginPage;
 
 
-public class OpenAdminSteps
+public class OpenAdminSteps extends BaseSteps
 {
 
-    AdminPage page;
+    AdminPage adminPage;
 
 
     public OpenAdminSteps()
     {
-        page = new AdminPage();
+        openPage(OPEN_URL);
+        adminPage = new AdminPage();
     }
 
 
     @Given("Login with valid credentials")
     public void loginWithValidCredentials()
     {
-        page.login();
+        adminPage.login(validEmail, validPassword);
     }
 
 
     @When("Click on admin link")
     public void clickOnAdminLink()
     {
-        page.clickOnAdminLink();
+        adminPage.clickOnAdminLink();
     }
 
 
     @Then("Check admin page")
     public void checkAdminPage()
     {
-        page.checkAdminPage();
+        adminPage.checkAdminPage();
     }
 
 }

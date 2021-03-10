@@ -13,8 +13,7 @@ public class AdminPage extends BasePage
 
     public AdminPage()
     {
-        open(OPEN_URL);
-        page(this);
+
     }
 
 

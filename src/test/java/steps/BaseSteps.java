@@ -4,20 +4,48 @@ package steps;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
-import com.codeborne.selenide.junit.TextReport;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.junit.After;
-import org.junit.Before;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 import org.junit.Rule;
-import pages.LoginPage;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
+import static com.codeborne.selenide.Selenide.*;
 
 
 public class BaseSteps
 {
+
+    /* This is not not allowed. Throws exception You're not allowed to extend classes that define Step Definitions or hooks
+    @Before
+    @After*/
+
+
+    // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
+    @Rule
+    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
+
+
+    static {
+        Configuration.remote = "http://127.0.0.1:4444/wd/hub";
+        Configuration.baseUrl = "https://tatrytec.eu";
+        Config conf = ConfigFactory.load();  // resources/application.conf
+        validPassword = conf.getString("login.password");
+        validEmail = conf.getString("login.email");
+        //Configuration.startMaximized = true;
+        //Configuration.headless = true;
+        //Configuration.screenshots = false;
+        //Configuration.holdBrowserOpen = true;
+    }
+
+    protected static String validPassword;
+    protected static String validEmail;
+
+    public String OPEN_URL = "";
+
+
+    public void openPage(String url)
+    {
+        open(url);
+    }
 
     // This is the JUnit way how to catch fail event.
     //@Rule

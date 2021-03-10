@@ -5,18 +5,14 @@ package pages;
 import com.codeborne.selenide.*;
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.Selectors.byAttribute;
+import static com.codeborne.selenide.Selectors.byName;
 import static com.codeborne.selenide.Selenide.*;
+import static java.time.Duration.ofSeconds;
 
 
 public class HomepagePage extends BasePage
 {
-
-    public HomepagePage()
-    {
-        open(OPEN_URL);
-        page(this);
-    }
-
 
     public void testHeader()
     {
@@ -45,6 +41,38 @@ public class HomepagePage extends BasePage
         ElementsCollection pagination = $$("ul.pagination li")
                 .shouldBe( sizeGreaterThan(2) );
         pagination.get(1).shouldHave( cssClass("active") );
+    }
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////
+    /// LOGIN FEATURES /////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////////
+    public void openLoginModal()
+    {
+        $("#sideMenu").find(byAttribute("data-target", "#loginModal")).click();
+        SelenideElement modal = $("#loginModal").should(appear);
+    }
+
+    public void fillEmail(String email)
+    {
+        $("#loginModal").find( byName("email") ).val(email);
+    }
+
+    public void fillPassword(String password)
+    {
+        $("#loginModal").find( byName("password") ).val(password);
+    }
+
+    public void sendForm()
+    {
+        $("#loginModal").find( byAttribute("type", "submit") ).click();
+    }
+
+    public void checkLoginResponse(String cssSelector, String text)
+    {
+        // Is new element do not use prev one.
+        $(cssSelector).shouldBe(visible, ofSeconds(7))
+                .shouldHave( text(text) );
     }
 
 }
