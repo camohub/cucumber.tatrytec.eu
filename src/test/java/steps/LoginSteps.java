@@ -16,13 +16,6 @@ public class LoginSteps extends BaseSteps
 
     HomepagePage homepagePage;
 
-    @Before
-    public void setup() { }
-
-    @After
-    public void tearDown() { }
-
-
 
     @Given("Open homepage")
     public void openHomepage()
