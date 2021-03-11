@@ -58,15 +58,18 @@ public class HomepagePage extends BasePage
         $("#loginModal").find( byName("email") ).val(email);
     }
 
+
     public void fillPassword(String password)
     {
         $("#loginModal").find( byName("password") ).val(password);
     }
 
+
     public void sendForm()
     {
         $("#loginModal").find( byAttribute("type", "submit") ).click();
     }
+
 
     public void checkLoginResponse(String cssSelector, String text)
     {
