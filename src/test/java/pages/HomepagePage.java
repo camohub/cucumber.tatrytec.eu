@@ -16,7 +16,7 @@ public class HomepagePage extends BasePage
 
     public void testHeader()
     {
-        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.euuuu"));
+        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.euuuu"), ofSeconds(7));
     }
 
 
@@ -49,7 +49,8 @@ public class HomepagePage extends BasePage
     ///////////////////////////////////////////////////////////////////////////////////////////////////
     public void openLoginModal()
     {
-        $("#sideMenu").find(byAttribute("data-target", "#loginModal")).click();
+        $("#sideMenu").find(byAttribute("data-target", "#loginModal"))
+                .shouldBe(visible, ofSeconds(7)).click();
         SelenideElement modal = $("#loginModal").should(appear);
     }
 

@@ -3,9 +3,12 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
+import static java.time.Duration.*;
 
 
 public class AdminPage extends BasePage
@@ -17,20 +20,16 @@ public class AdminPage extends BasePage
     }
 
 
-    public void checkSuccessLogin()
-    {
-        $("#alerts-wrapper .alert-success").shouldHave( text("Vitajte na palube") );
-    }
-
-
     public void clickOnAdminLink()
     {
-        $("#sideMenu").find(byAttribute("href", "https://tatrytec.eu/admin")).click();
+        $("#sideMenu").find(byAttribute("href", "https://tatrytec.eu/admin"))
+                .shouldBe(visible, ofSeconds(7)).click();
     }
 
 
     public void checkAdminPage()
     {
-        $("#main").find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"));
+        $("#main").find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
+                .shouldBe(visible, ofSeconds(7));
     }
 }
