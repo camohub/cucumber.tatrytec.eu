@@ -5,8 +5,8 @@ package steps;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.typesafe.config.Config;
-import com.typesafe.config.ConfigFactory;
 import org.junit.Rule;
+import services.ConfigSingletonService;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -24,16 +24,17 @@ public class BaseSteps
     public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
 
 
+    protected static Config conf = ConfigSingletonService.conf();  // resources/application.conf
+
     static {
         Configuration.remote = "http://127.0.0.1:4444/wd/hub";
         Configuration.baseUrl = "https://tatrytec.eu";
-        Config conf = ConfigFactory.load();  // resources/application.conf
-        validPassword = conf.getString("login.password");
-        validEmail = conf.getString("login.email");
+        Configuration.headless = conf.getBoolean("env.production");
         //Configuration.startMaximized = true;  // use hook for tag @maximized
-        //Configuration.headless = true;
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
+        validPassword = conf.getString("login.password");
+        validEmail = conf.getString("login.email");
     }
 
     protected static String validPassword;
