@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class BaseSteps
 {
 
-    /* This is not not allowed. Throws exception You're not allowed to extend classes that define Step Definitions or hooks
+    /* This is not allowed. Throws exception You're not allowed to extend classes that define Step Definitions or hooks
     @Before
     @After*/
 
@@ -35,6 +35,7 @@ public class BaseSteps
         //Configuration.holdBrowserOpen = true;
         validPassword = conf.getString("login.password");
         validEmail = conf.getString("login.email");
+        //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));
     }
 
     protected static String validPassword;
