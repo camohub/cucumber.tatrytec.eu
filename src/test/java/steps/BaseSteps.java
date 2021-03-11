@@ -30,7 +30,7 @@ public class BaseSteps
         Config conf = ConfigFactory.load();  // resources/application.conf
         validPassword = conf.getString("login.password");
         validEmail = conf.getString("login.email");
-        //Configuration.startMaximized = true;
+        //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.headless = true;
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;

@@ -15,14 +15,22 @@ public class BaseHook
     @Before(order = 1)
     public void setup()
     {
-
+        System.out.println("setup done");
     }
 
 
-    @Before(value = "@maximize", order = 2)
-    public void maximize()
+    // Conf. has to be removed in @After otherwise it persists in browser settings.
+    @Before("@maximize")
+    public void maximizeOn()
     {
         Configuration.startMaximized = true;
+    }
+
+
+    @After("@maximize")
+    public void maximizeOff()
+    {
+        Configuration.startMaximized = false;
     }
 
 
