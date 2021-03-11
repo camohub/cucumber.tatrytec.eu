@@ -16,7 +16,7 @@ public class HomepagePage extends BasePage
 
     public void testHeader()
     {
-        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"));
+        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.euuuu"));
     }
 
 
