@@ -22,14 +22,14 @@
         <profile>
             <id>fastTestCategory</id>
             <properties>
-                <category>categories.FastTest</category>
+                <category>runners.FastRunner</category>
             </properties>
         </profile>
         <profile>
             <id>fullTestCategory</id>
             <properties>
                 <!-- Related to <category/> in <properties> -->
-                <category>categories.FullTest</category>
+                <category>runners.FullRunner</category>
             </properties>
         </profile>
     </profiles>
