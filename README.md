@@ -27,8 +27,14 @@ Cucumber
 - hooks 
     - @Before @After
     - @tagy sa dajú použiť aj v hookoch napr. @maximize
-  
 - tags
     - @tagmi sa dá otagovať celá feature alebo len scenario
     - používajú sa v runneroch na filtovanie scenárov
     - používajú sa aj v hookoch na priradenie akcií ku tagom
+
+Jenkins
+====================
+Zmena oproti čistému Selenidu. 
+Nespúsťajú sa kategórie naviazaneé na @Category ale
+spušťajú sa runnery naviazené na class runners.RunnerClassName
+Bolo to treba to upraviť v pom.xml

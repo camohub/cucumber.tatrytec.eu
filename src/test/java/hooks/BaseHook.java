@@ -15,7 +15,7 @@ public class BaseHook
     @Before(order = 1)
     public void setup()
     {
-        System.out.println("setup done");
+
     }
 
 
