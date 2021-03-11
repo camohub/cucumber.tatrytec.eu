@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
     features = "src/test/features/",
     glue = {"steps", "hooks"},
     tags = "@admin or @homepage",
-    plugin = {"pretty"}
+    plugin = {"pretty", "json:target/reports/cucumber.json"}
 )
 public class FastRunner
 {
