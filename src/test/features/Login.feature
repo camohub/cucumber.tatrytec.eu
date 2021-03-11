@@ -1,3 +1,5 @@
+
+@user
 Feature: Login
   As user
   I want to login and see success message

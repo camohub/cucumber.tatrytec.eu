@@ -1,3 +1,5 @@
+
+@admin
 Feature: Admin login
   As user
   I want to login

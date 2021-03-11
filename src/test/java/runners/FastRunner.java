@@ -1,3 +1,4 @@
+
 package runners;
 
 
@@ -8,8 +9,9 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-    features = "src/test/features/Homepage.feature",
+    features = "src/test/features/",
     glue = {"steps", "hooks"},
+    tags = "@admin or @homepage",
     plugin = {"pretty"}
 )
 public class FastRunner

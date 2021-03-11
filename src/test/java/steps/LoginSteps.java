@@ -37,6 +37,7 @@ public class LoginSteps extends BaseSteps
         homepagePage.openLoginModal();
     }
 
+    //@And("Fill and send invalid login form ([^ ]+) ([^ ])")
     @And("Fill and send invalid login form {word} {word}")
     public void fillAndSendInvalidLoginForm(String email, String password)
     {
