@@ -4,13 +4,18 @@ package hooks;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.typesafe.config.Config;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
+import pages.BasePage;
+import services.ConfigSingletonService;
+import steps.BaseSteps;
 
 import java.util.Date;
+import java.util.prefs.BackingStoreException;
 
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -18,7 +23,9 @@ import static com.codeborne.selenide.Selenide.screenshot;
 public class BaseHooks
 {
 
-    public static Scenario scenario;
+    protected static Scenario scenario;
+
+    protected static Config conf = ConfigSingletonService.conf();
 
     /////////////////////////////////////////////////////////////////////////////////////////////
     /// @Before ////////////////////////////////////////////////////////////////////////////////
@@ -38,6 +45,9 @@ public class BaseHooks
         Configuration.startMaximized = true;
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////
+    /// @After /////////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////
 
     @After("@maximize")
     public void maximizeOff()
@@ -45,9 +55,6 @@ public class BaseHooks
         Configuration.startMaximized = false;
     }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////
-    /// @After /////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////
 
     @After(order=2)  // @After order runs in revert order - 3 2 1 0
     public void onFail()

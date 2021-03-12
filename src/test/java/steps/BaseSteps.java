@@ -39,8 +39,8 @@ public class BaseSteps
         //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));
     }
 
-    protected static String validPassword;
-    protected static String validEmail;
+    public static String validPassword;
+    public static String validEmail;
 
     public String OPEN_URL = "";
 
