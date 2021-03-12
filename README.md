@@ -14,7 +14,7 @@ Driver treba s Cucumberom zavrieť cez cucumber.@After
 
 Konfigurácia
 ====================
-Nastavenia browsera je v triede BasePage.static
+Browser sa konfiguruje hlavne v BaseSteps.java.static
 Knižnica com.typesafe.config načíta konfiguráciu zo súboru
 
 
@@ -37,4 +37,4 @@ Jenkins
 Zmena oproti čistému Selenidu. 
 Nespúsťajú sa kategórie naviazaneé na @Category ale
 spušťajú sa runnery naviazené na class runners.RunnerClassName
-Bolo to treba to upraviť v pom.xml
+Bolo to treba upraviť v pom.xml
