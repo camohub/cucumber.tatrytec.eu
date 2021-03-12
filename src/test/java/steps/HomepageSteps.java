@@ -2,15 +2,10 @@
 package steps;
 
 
-import com.codeborne.selenide.SelenideElement;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import pages.HomepagePage;
 
-import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -22,8 +17,8 @@ public class HomepageSteps extends BaseSteps
     public String OPEN_URL = "?aaaaaaaaaaaaa=bbbbbbbbbbbbb";
 
 
-    @When("Simple open homepage")
-    public void simpleOpenHomepage()
+    @Given("Open homepage to test elements")
+    public void openHomepage()
     {
         openPage(OPEN_URL);
         homePage = new HomepagePage();

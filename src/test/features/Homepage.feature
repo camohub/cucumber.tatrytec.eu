@@ -5,7 +5,7 @@ Feature: Test homepage elements
 
 
   Scenario: Check main elements on homepage
-    When Simple open homepage
+    Given Open homepage to test elements
     And Check header
     And Check side menu
     And Check articles count
