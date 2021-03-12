@@ -30,6 +30,7 @@ public class BaseSteps
         Configuration.remote = "http://127.0.0.1:4444/wd/hub";
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
+        Configuration.reportsFolder = "target/reports/";
         //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
