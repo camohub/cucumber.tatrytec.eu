@@ -38,6 +38,7 @@ Cucumber
     - používajú sa v runneroch na filtovanie scenárov
     - používajú sa aj v hookoch na priradenie akcií ku tagom
 
+
 Jenkins
 ====================
 Zmena oproti čistému Selenidu. 
