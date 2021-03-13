@@ -32,6 +32,13 @@
                 <category>runners.FullRunner</category>
             </properties>
         </profile>
+        <profile>
+            <id>TestCategory</id>
+            <properties>
+                <!-- Related to <category/> in <properties> -->
+                <category>runners.TestRunner</category>
+            </properties>
+        </profile>
     </profiles>
 
 

@@ -10,13 +10,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
-import pages.BasePage;
 import services.ConfigSingletonService;
-import steps.BaseSteps;
-
 import java.util.Date;
-import java.util.prefs.BackingStoreException;
-
 import static com.codeborne.selenide.Selenide.screenshot;
 
 
