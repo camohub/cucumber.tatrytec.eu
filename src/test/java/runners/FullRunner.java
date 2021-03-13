@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     features = "src/test/features/",
     glue = {"steps", "hooks"},
+    tags = "not @test",
     plugin = {"pretty", "json:target/reports/cucumber.json"}
 )
 public class FullRunner

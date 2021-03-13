@@ -6,14 +6,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static java.time.Duration.ofSeconds;
 
 
-public class CreateArticlePage extends BasePage
+public class CreateEditArticlePage extends BasePage
 {
 
 
@@ -24,6 +23,25 @@ public class CreateArticlePage extends BasePage
                 .shouldBe(visible, ofSeconds(7)).click();
     }
 
+
+    public void openEditArticlesPage()
+    {
+        $("#main")
+                .find(byAttribute("href", "https://tatrytec.eu/admin/articles"))
+                .shouldBe(visible, ofSeconds(7)).click();
+    }
+
+
+    public void clickOnEditArticleIcon(String text)
+    {
+        $("#main")
+                .find("tr:nth-child(2)").shouldHave(text(text), ofSeconds(14))
+                .find(byAttribute("title", "Edit")).click();
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    /// FILL //////////////////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////
 
     public void fillMetaDesc(String text)
     {
@@ -53,10 +71,10 @@ public class CreateArticlePage extends BasePage
     }
 
 
-    public void fillCategories()
+    public void fillCategories(String cat1, String cat2)
     {
-        $(byName("categories[]")).find(byAttribute("value", "122")).click();
-        $(byName("categories[]")).find(byAttribute("value", "100")).click();
+        $(byName("categories[]")).find(byAttribute("value", cat1)).click();
+        $(byName("categories[]")).find(byAttribute("value", cat2)).click();
     }
 
 
@@ -64,6 +82,11 @@ public class CreateArticlePage extends BasePage
     {
         $(byAttribute("type", "submit")).click();
     }
+
+
+    //////////////////////////////////////////////////////////////////////////
+    /// CHECK ///////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
 
 
     public void checkSuccessMessage()
@@ -75,5 +98,10 @@ public class CreateArticlePage extends BasePage
     public void checkArticleExists(String text)
     {
         $("#main tr:nth-child(2)").find("td:nth-child(1)").shouldHave(text(text), ofSeconds(14));
+    }
+
+    public void checkErrorMsg(String text)
+    {
+        $("#main").find(".alert-danger").shouldHave(text(text), ofSeconds(14));
     }
 }
