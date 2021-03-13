@@ -86,7 +86,7 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     @Then("Edit title")
     public void editTitle()
     {
-        createEditArticlePage.fillTitle(testText);
+        createEditArticlePage.fillTitle(testText + " 2");
     }
 
     @Then("Edit perex")
