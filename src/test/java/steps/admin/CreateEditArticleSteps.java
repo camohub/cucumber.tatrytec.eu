@@ -131,6 +131,36 @@ public class CreateEditArticleSteps extends BaseAdminSteps
         createEditArticlePage.checkArticleExists(testText);
     }
 
+    @Then("Check created title")
+    public void checkTitleValue()
+    {
+        createEditArticlePage.checkArticleTitle(testText);
+    }
+
+    @Then("Check crated meta description")
+    public void checkMetaDescValue()
+    {
+        createEditArticlePage.checkArticleMetaDesc(testText);
+    }
+
+    @Then("Check crated perex")
+    public void checkPerexValue()
+    {
+        createEditArticlePage.checkArticlePerex("<h2>" + testText + "</h2>");
+    }
+
+    @Then("Check crated text")
+    public void checkTextValue()
+    {
+        createEditArticlePage.checkArticleText("<h2>" + testText + "</h2>");
+    }
+
+    @Then("Check created categories")
+    public void checkCategoriesValues()
+    {
+        createEditArticlePage.checkArticleCategories("124", "125");
+    }
+
     @Then("Check error message related to title already exists")
     public void checkErrorMessageTitleExists()
     {

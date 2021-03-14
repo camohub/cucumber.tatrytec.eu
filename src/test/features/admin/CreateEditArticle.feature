@@ -14,6 +14,12 @@ Feature: Create article
     And Send form
     Then Check success message
     And Check article exists
+    Then Click on edit icon
+    And Check created title
+    And Check crated meta description
+    And Check crated perex
+    And Check crated text
+    And Check created categories
 
 
   Scenario: Try to create article with existing title
@@ -38,4 +44,6 @@ Feature: Create article
     And Send form
     Then Check success message
     And Check article has been updated
+    Then Check success message
+    And Check article exists
 
