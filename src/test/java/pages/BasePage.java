@@ -31,7 +31,7 @@ public class BasePage
 
     public void checkErrorMsg(String text)
     {
-        $("#main").find(".alert-danger").shouldHave(text(text), ofSeconds(14));
+        $(".alert-danger").shouldHave(text(text), ofSeconds(14));
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////

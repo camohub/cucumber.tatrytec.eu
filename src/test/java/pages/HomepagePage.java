@@ -51,7 +51,7 @@ public class HomepagePage extends BasePage
     {
         $("#sideMenu").find(byAttribute("data-target", "#loginModal"))
                 .shouldBe(visible, ofSeconds(7)).click();
-        SelenideElement modal = $("#loginModal").should(appear);
+        $("#loginModal").should(appear);
     }
 
     public void fillEmail(String email)
