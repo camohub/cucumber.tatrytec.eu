@@ -51,6 +51,12 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
         createEditCategoryPage.clickOnEditCategoryIcon(testText + " subcategory");
     }
 
+    @Then("Click on list open icon")
+    public void clickOnListOpenIcon()
+    {
+        createEditCategoryPage.clickOnListOpenIcon(testText + " 2");
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     /// FILL /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
@@ -76,7 +82,7 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     @And("Set parent category")
     public void setParentCategory()
     {
-        createEditCategoryPage.fillName(testText + " subcategory");
+        createEditCategoryPage.fillParentCategory(testText + " 2");
     }
 
     @And("Send category form")

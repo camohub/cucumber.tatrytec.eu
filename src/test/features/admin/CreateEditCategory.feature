@@ -38,6 +38,7 @@ Feature: Create and edit category
     And Fill subcategory name
     And Set parent category
     And Send category form
+    Then Click on list open icon
     Then Click on edit subcategory icon
     And Check category exists
     And Check parent category

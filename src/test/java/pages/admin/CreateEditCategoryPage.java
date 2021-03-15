@@ -4,8 +4,7 @@ package pages.admin;
 import com.codeborne.selenide.SelenideElement;
 import pages.BasePage;
 import static com.codeborne.selenide.Condition.*;
-import static com.codeborne.selenide.Selectors.byAttribute;
-import static com.codeborne.selenide.Selectors.byName;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
 import static java.time.Duration.ofSeconds;
 
@@ -40,6 +39,12 @@ public class CreateEditCategoryPage extends BasePage
         $("#editCategoryFormModal").should(appear);
     }
 
+
+    public void clickOnListOpenIcon(String text)
+    {
+        $("#main li").find(byText(text)).find(".fa-plus").click();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////
     /// FILL //////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////
@@ -50,9 +55,9 @@ public class CreateEditCategoryPage extends BasePage
     }
 
 
-    public void fillParentCategory(String cat)
+    public void fillParentCategory(String text)
     {
-        $(byName("categories[]")).find(byAttribute("value", cat)).click();
+        $(byName("parent_id")).find(byText(text)).click();
     }
 
 
