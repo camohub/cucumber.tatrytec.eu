@@ -3,6 +3,7 @@ package steps;
 
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.SelectorMode;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.typesafe.config.Config;
 import org.junit.Rule;
@@ -31,6 +32,7 @@ public class BaseSteps
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
+        Configuration.selectorMode = SelectorMode.Sizzle;
         //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;

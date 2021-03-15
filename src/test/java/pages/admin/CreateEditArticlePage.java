@@ -1,6 +1,7 @@
 package pages.admin;
 
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
@@ -127,7 +128,7 @@ public class CreateEditArticlePage extends BasePage
 
     public void checkArticleCategories(String cat1, String cat2)
     {
-        ElementsCollection options = $(byName("categories")).findAll(":selected");
+        ElementsCollection options = $(byName("categories[]")).findAll(":selected");
 
         options.find(value(cat1)).shouldHave(value(cat1), ofSeconds(14));
         options.find(value(cat2)).shouldHave(value(cat2), ofSeconds(14));
