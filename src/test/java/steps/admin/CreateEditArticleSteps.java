@@ -119,10 +119,10 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     /// CHECKS ///////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
-    @Then("Check success message")
+    @Then("Check article success message")
     public void checkSuccessMessage()
     {
-        createEditArticlePage.checkSuccessMessage();
+        createEditArticlePage.checkSuccessMessage("Článok bol uložený");
     }
 
     @And("Check article exists")

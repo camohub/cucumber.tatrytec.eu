@@ -12,7 +12,7 @@ Feature: Create article
     And Fill text
     And Fill categories
     And Send form
-    Then Check success message
+    Then Check article success message
     And Check article exists
     Then Click on edit icon
     And Check created title
@@ -42,8 +42,6 @@ Feature: Create article
     And Edit text
     And Edit categories
     And Send form
-    Then Check success message
+    Then Check article success message
     And Check article has been updated
-    Then Check success message
-    And Check article exists
 

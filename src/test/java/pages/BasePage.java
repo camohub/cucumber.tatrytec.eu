@@ -4,6 +4,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byAttribute;
 import static com.codeborne.selenide.Selectors.byName;
@@ -19,11 +20,24 @@ public class BasePage
 
     }
 
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    /// Base messages used across the pages ////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////////////
 
+    public void checkSuccessMessage(String text)
+    {
+        $("#alerts-wrapper").find(".alert-success").shouldHave(text(text), ofSeconds(14));
+    }
+
+    public void checkErrorMsg(String text)
+    {
+        $("#main").find(".alert-danger").shouldHave(text(text), ofSeconds(14));
+    }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
     ///// Used for base login e.g. for admin ///////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////
+
     public void login(String email, String password)
     {
         $("#sideMenu")

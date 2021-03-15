@@ -2,18 +2,14 @@ package pages.admin;
 
 
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import pages.BasePage;
-
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 import static java.time.Duration.ofSeconds;
 
 
@@ -92,19 +88,6 @@ public class CreateEditArticlePage extends BasePage
     //////////////////////////////////////////////////////////////////////////
     /// CHECK ///////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
-
-
-    public void checkSuccessMessage()
-    {
-        $("#alerts-wrapper").find(".alert-success").shouldHave(text("Článok bol uložený"), ofSeconds(14));
-    }
-
-
-    public void checkErrorMsg(String text)
-    {
-        $("#main").find(".alert-danger").shouldHave(text(text), ofSeconds(14));
-    }
-
 
     public void checkArticleExists(String text)
     {
