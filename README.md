@@ -8,7 +8,7 @@ zachytiť udalosť failed() a finished()
 Driver
 ====================
 Selenide má vlastnú implementáciu drivera. 
-Driver verzia sa dynamicky nastaví sáma podľa nainštalovaného brovsera.
+Driver verzia sa dynamicky nastaví sama podľa nainštalovaného browsera.
 Driver treba s Cucumberom zavrieť cez cucumber.@After
 
 
@@ -22,7 +22,7 @@ Cucumber
 ====================
 - Poradie
   - features - abecedne podľa adresárov a potom podľa súborov
-  - scenarios = podľa poradia v kóde  
+  - scenarios - podľa poradia v kóde  
   - hooks - parameter order=3
   
 - features
@@ -35,13 +35,13 @@ Cucumber
     - poradie sa nastaví parametrom order=4
 - tags
     - @tagmi sa dá otagovať celá feature alebo len scenario
-    - používajú sa v runneroch na filtovanie scenárov
+    - používajú sa v runneroch na filtrovanie scenárov
     - používajú sa aj v hookoch na priradenie akcií ku tagom
 
 
 Jenkins
 ====================
 Zmena oproti čistému Selenidu. 
-Nespúsťajú sa kategórie naviazaneé na @Category ale
+Nespúsťajú sa kategórie naviazané na @Category, ale
 spušťajú sa runnery naviazené na class runners.RunnerClassName
 Bolo to treba upraviť v pom.xml
