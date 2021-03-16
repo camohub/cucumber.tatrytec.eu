@@ -19,12 +19,6 @@ public class BaseSteps
     @Before
     @After*/
 
-
-    // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
-    @Rule
-    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
-
-
     protected static Config conf = ConfigSingletonService.conf();  // resources/application.conf
 
     static {
@@ -51,6 +45,10 @@ public class BaseSteps
     {
         open(url);
     }
+
+    // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
+    //@Rule
+    //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
 
     // This is the JUnit way how to catch fail event.
     //@Rule

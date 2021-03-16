@@ -1,8 +1,14 @@
-TestWatcher
+TestWatcher, ScreenShooter, onFail
 ====================
-// Neplatí ak sa použije SELENIDE miesto SELENIA
-Prepisuje pôvodnú JUnit triedu TestWatcher, aby bolo možné
-zachytiť udalosť failed() a finished()
+- TestWatcher - Selenium - sa nepoužíva. Slúži na zachytenie eventu failed() a finished(), 
+  aby sa napr. urobil screenshot. O to sa aktuálne stará Selenide.
+  Ukážka je v BaseSteps.java. Táto trieda prepisuje pôvodnú JUnit triedu TestWatcher.
+
+- Screenshooter - Selenide - sa nepoužíva. Ukážka je implmentovaná v BaseSteps.java.
+  Tiež je to implenentácia triedy JUnit TestWatcher.
+  
+- onFail - cucumber.@After hook - tu je implementácia screenshootera,
+  cez metódu Selenide.screenshoot() v spojení s volaním scenario.isFailed().
 
 
 Driver
