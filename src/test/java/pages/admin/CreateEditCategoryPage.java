@@ -77,14 +77,11 @@ public class CreateEditCategoryPage extends BasePage
         SelenideElement childCategory = parentCategory.find("ul li");
 
         HashMap<String, Integer> parentTopLeftOffset = getElementTopLeftOffset(parentCategory);
-        HashMap<String, Integer> childTopLeftOffset = getElementTopLeftOffset(childCategory);
         Integer parentX = parentTopLeftOffset.get("x");
         Integer parentY = parentTopLeftOffset.get("y");
-        Integer childX = childTopLeftOffset.get("x");
-        Integer childY = childTopLeftOffset.get("y");
 
 
-        actions.moveToElement(childCategory, childX, childY).perform();
+        actions.moveToElement(childCategory).perform();
         actions.clickAndHold().perform();
         actions.moveToElement(parentCategory, parentX + 4, parentY + 4).perform();  // +4 cause we want to be little inside not on the edge.
         // Needs to simulate mousemove over the parent element,
