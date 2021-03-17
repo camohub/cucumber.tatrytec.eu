@@ -57,7 +57,8 @@ public class BaseHooks
         if( scenario.isFailed() )
         {
             byte[] data = screenshot(OutputType.BYTES);
-            scenario.attach(data, "image/png", scenario.getClass() + "-" + (new Date()).getTime());
+            String fileName = scenario.getName().replaceAll("[^\\w]+","-") + "-" + (new Date()).getTime();
+            scenario.attach(data, "image/png", fileName);
         }
     }
 
