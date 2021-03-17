@@ -199,7 +199,7 @@ public class CreateEditCategoryPage extends BasePage
     {
         SelenideElement parentCategory = $$("#main .sortable li").find(text(parentText));
         parentCategory.find(".fa-plus").click();
-        parentCategory.find(byText(childText)).shouldHave(text(childText));
+        parentCategory.find("ul li").shouldHave(text(childText));
     }
 
 }

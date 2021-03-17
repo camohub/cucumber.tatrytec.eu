@@ -1,7 +1,7 @@
 
 @admin @articles
-Feature: Create article
-  Try to create new article
+Feature: Create and edit article
+  Try to create and edit article
 
 
   Scenario: Try to create new article
