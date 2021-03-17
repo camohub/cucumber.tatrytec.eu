@@ -3,6 +3,9 @@ package pages;
 
 
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Dimension;
+
+import java.util.HashMap;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
@@ -21,7 +24,7 @@ public class BasePage
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    /// Base messages used across the pages ////////////////////////////////////////////////////////
+    /// BASE MESSAGE USED ACROSS THE PAGES /////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
     public void checkSuccessMessage(String text)
@@ -35,7 +38,7 @@ public class BasePage
     }
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    ///// Used for base login e.g. for admin ///////////////////////////////////////////////////////
+    ///// USED FOR BASE LOGIN E.G. FOR ADMIN ///////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
     public void login(String email, String password)
@@ -54,6 +57,38 @@ public class BasePage
     {
         $("#sideMenu").find(byAttribute("href", "https://tatrytec.eu/admin"))
                 .shouldBe(visible, ofSeconds(14)).click();
+    }
+
+    /////////////////////////////////////////////////////////////////////////////////////////
+    /// HELPERS ////////////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////////
+
+    protected HashMap<String, Integer> getElementTopLeftOffset(SelenideElement el)
+    {
+        HashMap<String, Integer> result = new HashMap<>();
+        Dimension size = el.getSize();
+
+        int elTopLeftXOffset = (size.getWidth()/2) - size.getWidth();
+        int elTopLeftYOffset = (size.getHeight()/2) - size.getHeight();
+
+        result.put("x", elTopLeftXOffset);
+        result.put("y", elTopLeftYOffset);
+
+        return result;
+    }
+
+    protected HashMap<String, Integer> getElementBottomRightOffset(SelenideElement el)
+    {
+        HashMap<String, Integer> result = new HashMap<>();
+        Dimension size = el.getSize();
+
+        int elBottomLeftXOffset = (size.getWidth()/2);
+        int elBottomLeftYOffset = (size.getHeight()/2);
+
+        result.put("x", elBottomLeftXOffset);
+        result.put("y", elBottomLeftYOffset);
+
+        return result;
     }
 
 }

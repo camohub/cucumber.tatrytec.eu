@@ -44,6 +44,19 @@ Feature: Create and edit category
     And Check parent category
 
 
+  Scenario: Test drag and drop categories sorting
+    When Click on edit categories link
+    Then Click on list open icon
+    Then Drag test subcategory out of parent category
+    Then Save new categories order
+    Then Check sort success message
+    And Check if subcategory is above the parent category
+    Then Drag test subcategory back inside the parent category
+    Then Save new categories order
+    Then Check sort success message
+    And Check if test category is inside the category
+
+
 
 
 
