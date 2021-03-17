@@ -51,18 +51,18 @@ public class BaseHooks
     }
 
 
-    @After(order=2)  // @After order runs in revert order - 3 2 1 0
+    @After(order=2)  // @After hooks run in revert order - 3 2 1 0
     public void onFail()
     {
         if( scenario.isFailed() )
         {
             byte[] data = screenshot(OutputType.BYTES);
-            scenario.attach(data, "image/png", scenario.getName() + "-" + (new Date()).getTime());
+            scenario.attach(data, "image/png", scenario.getClass() + "-" + (new Date()).getTime());
         }
     }
 
 
-    @After(order=1)  // @After order runs in revert order - 3 2 1 0
+    @After(order=1)  // @After hooks run in revert order - 3 2 1 0
     public void tearDown()
     {
         WebDriver driver = WebDriverRunner.getWebDriver();
