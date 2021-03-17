@@ -189,6 +189,5 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     public void checkIfTestCategoryIsInsideTheCategory() throws InterruptedException
     {
         createEditCategoryPage.checkIfSubcategoryIsInsideTheParentCategory(updatedCategoryName, subCategoryName);
-        sleep(10000);
     }
 }
