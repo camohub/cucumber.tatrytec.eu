@@ -26,7 +26,7 @@ public class CreateEditCategoryPage extends BasePage
     {
         $("#main")
                 .find(byAttribute("href", "https://tatrytec.eu/admin/categories"))
-                .shouldBe(visible, ofSeconds(7)).click();
+                .shouldBe(visible, ofSeconds(30)).click();
     }
 
 
@@ -34,7 +34,7 @@ public class CreateEditCategoryPage extends BasePage
     {
         $("#main")
                 .find(byAttribute("data-target", "#editCategoryFormModal"))
-                .shouldBe(visible, ofSeconds(7)).click();
+                .shouldBe(visible, ofSeconds(14)).click();
 
         $("#editCategoryFormModal").should(appear);
     }
