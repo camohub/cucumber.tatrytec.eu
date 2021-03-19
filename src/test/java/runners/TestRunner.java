@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
     features = "src/test/features/Test.feature",
     glue = {"steps", "hooks"},
     plugin = {"pretty", "json:target/reports/cucumber.json"},
-    monochrome = true
+    monochrome = false
 )
 public class TestRunner
 {
