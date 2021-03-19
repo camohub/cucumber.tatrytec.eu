@@ -59,7 +59,7 @@ public class CreateEditArticlePage extends BasePage
 
     public void fillPerex(String text)
     {
-        $("#perex_ifr").shouldBe(visible, ofSeconds(14)).click();
+        $("#perex_ifr").shouldBe(visible, ofSeconds(60)).click();
         WebDriver driver = WebDriverRunner.getWebDriver();
         ((JavascriptExecutor)driver).executeScript("tinyMCE.activeEditor.setContent('" + text + "')");
     }
