@@ -4,12 +4,14 @@ package steps;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.SelectorMode;
+import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.typesafe.config.Config;
 import org.junit.Rule;
+import org.openqa.selenium.WebDriver;
 import services.ConfigSingletonService;
-
 import static com.codeborne.selenide.Selenide.*;
+import static java.util.concurrent.TimeUnit.SECONDS;
 
 
 public class BaseSteps
@@ -27,6 +29,7 @@ public class BaseSteps
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
+        WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(300, SECONDS);
         //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
