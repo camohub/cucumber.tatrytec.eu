@@ -29,7 +29,6 @@ public class BaseSteps
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
-        WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(300, SECONDS);
         //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
@@ -47,6 +46,7 @@ public class BaseSteps
     public void openPage(String url)
     {
         open(url);
+        WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(300, SECONDS);
     }
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
