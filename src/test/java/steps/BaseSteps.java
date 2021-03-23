@@ -45,9 +45,9 @@ public class BaseSteps
 
     public void openPage(String url)
     {
+        open(url);
         WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(120, SECONDS);
         WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(120, SECONDS);
-        open(url);
     }
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
@@ -57,6 +57,7 @@ public class BaseSteps
     // This is the JUnit way how to catch fail event.
     //@Rule
     //public TestWatcher failWatcher = new TestWatcher();
+
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
     //@Rule
