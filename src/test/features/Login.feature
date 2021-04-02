@@ -5,13 +5,6 @@ Feature: Login
   I want to login and see success message
 
 
-  Scenario: Login with valid credentials
-    Given Open homepage
-    When Open login modal
-    When Fill and send valid login form
-    Then See success message
-
-
   Scenario Outline: Login with invalid credentials
     Given Open homepage
     When Open login modal
@@ -23,3 +16,11 @@ Feature: Login
       | aaaaaaaa.aa | aaaaaaaaaa |
       | aaaa@aaaaaa | aaaaaaaaaa |
       | aaaaaaaaaaa | aaaaaaaaaa |
+
+
+  @last
+  Scenario: Login with valid credentials
+    Given Open homepage
+    When Open login modal
+    When Fill and send valid login form
+    Then See success message

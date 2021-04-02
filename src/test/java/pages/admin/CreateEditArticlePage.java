@@ -18,22 +18,6 @@ public class CreateEditArticlePage extends BasePage
 {
 
 
-    public void openCreateArticlePage()
-    {
-        $("#main")
-                .find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
-                .shouldBe(visible, ofSeconds(14)).click();
-    }
-
-
-    public void openEditArticlesPage()
-    {
-        $("#main")
-                .find(byAttribute("href", "https://tatrytec.eu/admin/articles"))
-                .shouldBe(visible, ofSeconds(14)).click();
-    }
-
-
     public void clickOnEditArticleIcon(String text)
     {
         $("#main")

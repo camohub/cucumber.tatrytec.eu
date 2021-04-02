@@ -44,6 +44,7 @@ Feature: Create and edit category
     And Check parent category
 
 
+  @last
   Scenario: Test drag and drop categories sorting
     When Click on edit categories link
     Then Click on list open icon

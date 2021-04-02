@@ -11,6 +11,8 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import services.ConfigSingletonService;
+import steps.BaseSteps;
+
 import java.util.Date;
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -63,12 +65,13 @@ public class BaseHooks
     }
 
 
-    @After(order=1)  // @After hooks run in revert order - 3 2 1 0
+    @After(value="@last", order=1)  // @After hooks run in revert order - 3 2 1 0
     public void tearDown()
     {
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.close();
         driver.quit();
+        BaseSteps.isLoggedIn = false;
     }
 
 }

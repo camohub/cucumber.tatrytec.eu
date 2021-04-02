@@ -2,6 +2,7 @@ package steps.admin;
 
 
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.admin.CreateEditArticlePage;
@@ -10,6 +11,8 @@ import steps.BaseAdminSteps;
 
 public class CreateEditArticleSteps extends BaseAdminSteps
 {
+
+    public String OPEN_ARTICLES_ADMIN_URL = "/admin/articles";
 
     CreateEditArticlePage createEditArticlePage;
 
@@ -22,20 +25,33 @@ public class CreateEditArticleSteps extends BaseAdminSteps
         createEditArticlePage = new CreateEditArticlePage();
     }
 
+
+    @Given("Open articles admin page")
+    public void openArticlesAdminPage()
+    {
+        openPage(OPEN_ARTICLES_ADMIN_URL);
+    }
+
     ///////////////////////////////////////////////////////////////////////////////////////////
     /// LINKS ////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
+    @When("Click on admin link")
+    public void clickOnAdminLink()
+    {
+        adminPage.clickOnAdminLink();
+    }
+
     @When("Click on new article link")
     public void clickOnNewArticleLink()
     {
-        createEditArticlePage.openCreateArticlePage();
+        adminPage.openCreateArticlePage();
     }
 
     @When("Click on edit articles link")
     public void clickOnEditArticlesLink()
     {
-        createEditArticlePage.openEditArticlesPage();
+        adminPage.openEditArticlesPage();
     }
 
     @When("Click on edit icon")

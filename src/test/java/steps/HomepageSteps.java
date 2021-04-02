@@ -20,7 +20,6 @@ public class HomepageSteps extends BaseSteps
     @Given("Open homepage to test elements")
     public void openHomepage()
     {
-        openPage(OPEN_URL);
         homePage = new HomepagePage();
     }
 

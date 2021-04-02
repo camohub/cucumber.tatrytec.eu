@@ -21,16 +21,18 @@ public class AdminPage extends BasePage
     }
 
 
-    public void clickOnAdminLink()
+    public void openCreateArticlePage()
     {
-        $("#sideMenu").find(byAttribute("href", "https://tatrytec.eu/admin"))
-                .shouldBe(visible, ofSeconds(7)).click();
+        $("#main")
+                .find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
+                .shouldBe(visible, ofSeconds(14)).click();
     }
 
 
-    public void checkAdminPage()
+    public void openEditArticlesPage()
     {
-        $("#main").find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
-                .shouldBe(visible, ofSeconds(7));
+        $("#main")
+                .find(byAttribute("href", "https://tatrytec.eu/admin/articles"))
+                .shouldBe(visible, ofSeconds(14)).click();
     }
 }

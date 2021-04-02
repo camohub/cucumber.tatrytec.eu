@@ -7,8 +7,13 @@ import com.codeborne.selenide.SelectorMode;
 import com.codeborne.selenide.WebDriverRunner;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.typesafe.config.Config;
+import io.cucumber.java.en.Given;
+import io.cucumber.junit.Cucumber;
+import org.junit.ClassRule;
 import org.junit.Rule;
 import org.openqa.selenium.WebDriver;
+import pages.HomepagePage;
+import pages.admin.AdminPage;
 import services.ConfigSingletonService;
 import static com.codeborne.selenide.Selenide.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
@@ -24,7 +29,7 @@ public class BaseSteps
     protected static Config conf = ConfigSingletonService.conf();  // resources/application.conf
 
     static {
-        Configuration.remote = "http://127.0.0.1:4444/wd/hub";
+        Configuration.remote = "http://127.0.0.1:4444";
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
@@ -43,12 +48,33 @@ public class BaseSteps
     public String OPEN_URL = "";
 
 
+    public BaseSteps()
+    {
+        openPage(OPEN_URL);
+    }
+
+
     public void openPage(String url)
     {
         open(url);
         WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(120, SECONDS);
         WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(120, SECONDS);
     }
+
+    // First scenario in feature makes login and next share this session in browser.
+    // Last scenario in feature tagged as @last close session via hook driver.quit()
+    public static boolean isLoggedIn = false;
+
+    public void login()
+    {
+        if( ! BaseSteps.isLoggedIn )
+        {
+            new HomepagePage().login(conf.getString("login.email"), conf.getString("login.password"));
+            BaseSteps.isLoggedIn = true;
+        }
+
+    }
+
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
     //@Rule
@@ -57,7 +83,6 @@ public class BaseSteps
     // This is the JUnit way how to catch fail event.
     //@Rule
     //public TestWatcher failWatcher = new TestWatcher();
-
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
     //@Rule

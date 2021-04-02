@@ -53,7 +53,7 @@ public class BasePage
         modal.find( byAttribute("type", "submit") ).click();
     }
 
-    public void openAdmin()
+    public void clickOnAdminLink()
     {
         $("#sideMenu").find(byAttribute("href", "https://tatrytec.eu/admin"))
                 .shouldBe(visible, ofSeconds(14)).click();

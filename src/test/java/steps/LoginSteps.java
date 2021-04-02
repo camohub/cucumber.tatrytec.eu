@@ -20,7 +20,6 @@ public class LoginSteps extends BaseSteps
     @Given("Open homepage")
     public void openHomepage()
     {
-        openPage(OPEN_URL);
         homepagePage = new HomepagePage();
     }
 
