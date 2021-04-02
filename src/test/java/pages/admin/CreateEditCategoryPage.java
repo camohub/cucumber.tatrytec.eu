@@ -51,7 +51,9 @@ public class CreateEditCategoryPage extends BasePage
 
     public void clickOnListOpenIcon(String text)
     {
-        $$("#main .sortable li").find(text(text)).find(".fa-plus").click();
+        SelenideElement icon = $$("#main .sortable li").find(text(text)).find(".fa-plus");
+        sleep(500);  // This seems to be necessary cause javascript sometimes is not prepared yet.
+        icon.click();
     }
 
 

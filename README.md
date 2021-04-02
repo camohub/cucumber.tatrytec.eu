@@ -13,9 +13,9 @@ TestWatcher, ScreenShooter, onFail
 
 Driver
 ====================
-Selenide má vlastnú implementáciu drivera. 
-Driver verzia sa dynamicky nastaví sama podľa nainštalovaného browsera.
-Driver treba s Cucumberom zavrieť cez cucumber.@After
+- Selenide má vlastnú implementáciu drivera (neplatí pri remote driver).
+- Driver verzia sa dynamicky nastaví sama podľa nainštalovaného browsera.
+- Driver treba s Cucumberom zavrieť cez cucumber.@After hook. 
 
 
 Konfigurácia
@@ -44,10 +44,16 @@ Cucumber
     - používajú sa v runneroch na filtrovanie scenárov
     - používajú sa aj v hookoch na priradenie akcií ku tagom
 
+Javascript
+====================
+- Element na ktorom chcem vyvolať javascript akciu (napr. click()),
+  síce môže byť viditeľný, ale ešte nemá naviazaný javascript event.
+  Treba explicitne počkať cez sleep(xxx).
+  
 
 Jenkins
 ====================
-Zmena oproti čistému Selenidu. 
-Nespúsťajú sa kategórie naviazané na @Category, ale
-spušťajú sa runnery naviazené na class runners.RunnerClassName
-Bolo to treba upraviť v pom.xml
+- Zmena oproti čistému Selenidu. 
+  Nespúsťajú sa kategórie naviazané na @Category, ale
+  spušťajú sa runnery naviazené na class runners.RunnerClassName
+  Bolo to treba upraviť v pom.xml
