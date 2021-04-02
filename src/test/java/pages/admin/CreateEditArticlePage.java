@@ -3,6 +3,7 @@ package pages.admin;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
@@ -11,6 +12,7 @@ import pages.BasePage;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
 import static java.time.Duration.ofSeconds;
 
 
@@ -20,9 +22,11 @@ public class CreateEditArticlePage extends BasePage
 
     public void clickOnEditArticleIcon(String text)
     {
-        $("#main")
+        SelenideElement icon = $("#main")
                 .find("tr:nth-child(2)").shouldHave(text(text), ofSeconds(14))
-                .find(byAttribute("title", "Edit")).click();
+                .find(byAttribute("title", "Edit"));
+        sleep(1000);  // Because javascript sometimes is not prepared yet.
+        icon.click();
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
