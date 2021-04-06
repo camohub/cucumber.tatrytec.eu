@@ -2,22 +2,24 @@
 package steps;
 
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.SelectorMode;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import com.codeborne.selenide.junit.ScreenShooter;
 import com.typesafe.config.Config;
 import io.cucumber.java.en.Given;
 import io.cucumber.junit.Cucumber;
 import org.junit.ClassRule;
 import org.junit.Rule;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.HomepagePage;
 import pages.admin.AdminPage;
 import services.ConfigSingletonService;
 import services.PageSingletonService;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.*;
+import static java.time.Duration.ofSeconds;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 
@@ -30,22 +32,20 @@ public class BaseSteps
 
     protected static Config conf = ConfigSingletonService.conf();  // resources/application.conf
 
+    public static String validPassword = conf.getString("login.password");
+    public static String validEmail = conf.getString("login.email");
+
+
     static {
         Configuration.remote = "http://127.0.0.1:4444";
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
-        //Configuration.startMaximized = true;  // use hook for tag @maximized
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
-        validPassword = conf.getString("login.password");
-        validEmail = conf.getString("login.email");
         //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));
     }
-
-    public static String validPassword;
-    public static String validEmail;
 
 
     public String OPEN_URL = "";
@@ -68,6 +68,18 @@ public class BaseSteps
         open(url);
         WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(120, SECONDS);
         WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(120, SECONDS);
+    }
+
+
+    public Boolean elementExists(By by)
+    {
+        try {
+            int size = $$(by).shouldHave(CollectionCondition.sizeGreaterThan(0), ofSeconds(30)).size();
+            return true;
+        } catch ( Throwable e )
+        {
+            return false;
+        }
     }
 
 
