@@ -14,14 +14,6 @@ import pages.HomepagePage;
 public class LoginSteps extends BaseSteps
 {
 
-    HomepagePage homepagePage;
-
-
-    @Given("Open homepage")
-    public void openHomepage()
-    {
-        homepagePage = new HomepagePage();
-    }
 
     @When("Open login modal")
     public void openLoginModal()

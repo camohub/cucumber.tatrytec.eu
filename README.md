@@ -20,8 +20,9 @@ Driver
 
 Konfigurácia
 ====================
-Browser sa konfiguruje hlavne v BaseSteps.java.static
-Knižnica com.typesafe.config načíta konfiguráciu zo súboru
+- Browser sa konfiguruje hlavne v BaseSteps.java.static 
+- Knižnica com.typesafe.config načíta konfiguráciu zo súboru
+  src/test/resources/application.conf
 
 
 Cucumber

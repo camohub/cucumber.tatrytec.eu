@@ -5,6 +5,7 @@ Feature: Create and edit category
 
 
   Scenario: Try to create new category
+    Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
     And Fill category name
@@ -15,6 +16,7 @@ Feature: Create and edit category
 
 
   Scenario: Try to create category with existing name
+    Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
     And Fill category name
@@ -23,6 +25,7 @@ Feature: Create and edit category
 
 
   Scenario: Try to edit category
+    Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on edit category icon
     And Check expected category name
@@ -33,6 +36,7 @@ Feature: Create and edit category
 
 
   Scenario: Create subcategory
+    Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
     And Fill subcategory name
@@ -44,8 +48,8 @@ Feature: Create and edit category
     And Check parent category
 
 
-  @last
   Scenario: Test drag and drop categories sorting
+    Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on list open icon
     Then Drag test subcategory out of parent category

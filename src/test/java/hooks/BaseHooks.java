@@ -65,13 +65,13 @@ public class BaseHooks
     }
 
 
-    @After(value="@last", order=1)  // @After hooks run in revert order - 3 2 1 0
+    @After(/*value="@last", */order=1)  // @After hooks run in revert order - 3 2 1 0
     public void tearDown()
     {
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.close();
         driver.quit();
-        BaseSteps.isLoggedIn = false;
+        //BaseSteps.isLoggedIn = false;
     }
 
 }

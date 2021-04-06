@@ -5,6 +5,7 @@ package steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import pages.HomepagePage;
+import services.PageSingletonService;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -12,42 +13,42 @@ import static com.codeborne.selenide.Selenide.$;
 public class HomepageSteps extends BaseSteps
 {
 
-    public HomepagePage homePage;
-
-    public String OPEN_URL = "?aaaaaaaaaaaaa=bbbbbbbbbbbbb";
+    public String OPEN_URL = "?test=parameter";
 
 
-    @Given("Open homepage to test elements")
+    @Given("Open homepage")
     public void openHomepage()
     {
-        homePage = new HomepagePage();
+        openPage(OPEN_URL);
     }
 
 
     @And("Check header")
     public void checkHeader()
     {
-        homePage.testHeader();
+        homepagePage.testHeader();
     }
 
 
     @And("Check side menu")
     public void checkSideMenu()
     {
-        homePage.testMenu();
+        homepagePage.testMenu();
     }
 
 
     @And("Check articles count")
     public void checkArticlesCount()
     {
-        homePage.testArticles();
+        homepagePage.testArticles();
     }
 
 
     @And("Check paginator")
     public void checkPaginator()
     {
-        homePage.testPagination();
+        homepagePage.testPagination();
     }
+
+
 }

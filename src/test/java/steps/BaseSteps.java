@@ -15,6 +15,8 @@ import org.openqa.selenium.WebDriver;
 import pages.HomepagePage;
 import pages.admin.AdminPage;
 import services.ConfigSingletonService;
+import services.PageSingletonService;
+
 import static com.codeborne.selenide.Selenide.*;
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -45,12 +47,19 @@ public class BaseSteps
     public static String validPassword;
     public static String validEmail;
 
+
     public String OPEN_URL = "";
 
 
+    public HomepagePage homepagePage;
+
+
+    /**
+     * Constructor
+     */
     public BaseSteps()
     {
-        openPage(OPEN_URL);
+        homepagePage = PageSingletonService.getHomePage();
     }
 
 
@@ -59,20 +68,6 @@ public class BaseSteps
         open(url);
         WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(120, SECONDS);
         WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(120, SECONDS);
-    }
-
-    // First scenario in feature makes login and next share this session in browser.
-    // Last scenario in feature tagged as @last close session via hook driver.quit()
-    public static boolean isLoggedIn = false;
-
-    public void login()
-    {
-        if( ! BaseSteps.isLoggedIn )
-        {
-            new HomepagePage().login(conf.getString("login.email"), conf.getString("login.password"));
-            BaseSteps.isLoggedIn = true;
-        }
-
     }
 
 

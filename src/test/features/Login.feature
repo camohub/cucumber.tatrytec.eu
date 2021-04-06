@@ -18,7 +18,6 @@ Feature: Login
       | aaaaaaaaaaa | aaaaaaaaaa |
 
 
-  @last
   Scenario: Login with valid credentials
     Given Open homepage
     When Open login modal

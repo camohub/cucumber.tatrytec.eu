@@ -6,7 +6,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.admin.CreateEditArticlePage;
-import steps.BaseAdminSteps;
+import services.PageSingletonService;
 
 
 public class CreateEditArticleSteps extends BaseAdminSteps
@@ -19,10 +19,12 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     String testText = "Selenium test";
 
 
-    // Constructor
+    /**
+     * Constructor
+     */
     public CreateEditArticleSteps()
     {
-        createEditArticlePage = new CreateEditArticlePage();
+        createEditArticlePage = PageSingletonService.getCreateEditArticlePage();
     }
 
 
@@ -35,12 +37,6 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     ///////////////////////////////////////////////////////////////////////////////////////////
     /// LINKS ////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
-
-    @When("Click on admin link")
-    public void clickOnAdminLink()
-    {
-        adminPage.clickOnAdminLink();
-    }
 
     @When("Click on new article link")
     public void clickOnNewArticleLink()

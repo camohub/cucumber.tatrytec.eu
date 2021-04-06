@@ -5,6 +5,7 @@ Feature: Create and edit article
 
 
   Scenario: Try to create new article
+    Given User is logged in and is on admin page
     When Click on new article link
     And Fill meta description
     And Fill title
@@ -23,7 +24,7 @@ Feature: Create and edit article
 
 
   Scenario: Try to create article with existing title
-    Given Click on admin link
+    Given User is logged in and is on admin page
     When Click on new article link
     And Fill meta description
     And Fill title
@@ -34,9 +35,8 @@ Feature: Create and edit article
     Then Check error message related to title already exists
 
 
-  @last
   Scenario: Try to edit article
-    Given Click on admin link
+    Given User is logged in and is on admin page
     When Click on edit articles link
     Then Click on edit icon
     And Edit meta description

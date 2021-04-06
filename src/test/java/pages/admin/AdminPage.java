@@ -15,6 +15,9 @@ import static java.time.Duration.*;
 public class AdminPage extends BasePage
 {
 
+    /**
+     * Constructor
+     */
     public AdminPage()
     {
 
@@ -24,15 +27,15 @@ public class AdminPage extends BasePage
     public void openCreateArticlePage()
     {
         $("#main")
-                .find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
-                .shouldBe(visible, ofSeconds(14)).click();
+            .find(byAttribute("href", "https://tatrytec.eu/admin/articles/create"))
+            .shouldBe(visible, ofSeconds(14)).click();
     }
 
 
     public void openEditArticlesPage()
     {
         $("#main")
-                .find(byAttribute("href", "https://tatrytec.eu/admin/articles"))
-                .shouldBe(visible, ofSeconds(14)).click();
+            .find(byAttribute("href", "https://tatrytec.eu/admin/articles"))
+            .shouldBe(visible, ofSeconds(14)).click();
     }
 }

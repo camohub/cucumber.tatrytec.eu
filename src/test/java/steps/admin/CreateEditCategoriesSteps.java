@@ -5,7 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.admin.CreateEditCategoryPage;
-import steps.BaseAdminSteps;
+import services.PageSingletonService;
 
 import static java.lang.Thread.sleep;
 
@@ -22,11 +22,12 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     public String subCategoryName = "Selenium test subcategory";
 
 
-
-    // Constructor
+    /**
+     * Constructor
+     */
     public CreateEditCategoriesSteps()
     {
-        createEditCategoryPage = new CreateEditCategoryPage();
+        createEditCategoryPage = PageSingletonService.getCreateEditCategoryPage();
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -156,13 +157,13 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     }
 
     @And("Check expected category name")
-    public void CheckExpectedCategoryName()
+    public void checkExpectedCategoryName()
     {
         createEditCategoryPage.checkExpectedCategoryName(categoryName);
     }
 
     @And("Check category has been updated")
-    public void CheckEditedCategoryName()
+    public void checkEditedCategoryName()
     {
         createEditCategoryPage.checkCategoryExists(updatedCategoryName);
     }
