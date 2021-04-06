@@ -147,8 +147,8 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M5</version>
                     <configuration>
-                        <forkCount>10</forkCount>
-                        <reuseForks>false</reuseForks>
+                        <parallel>methods</parallel>
+                        <useUnlimitedThreads>true</useUnlimitedThreads>
                         <includes>
                             <include>${category}</include>
                         </includes>
