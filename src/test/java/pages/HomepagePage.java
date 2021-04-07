@@ -47,11 +47,12 @@ public class HomepagePage extends BasePage
     /////////////////////////////////////////////////////////////////////////////////////////////////////
     /// LOGIN FEATURES /////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////
+
     public void openLoginModal()
     {
         $("#sideMenu").find(byAttribute("data-target", "#loginModal"))
-                .shouldBe(visible, ofSeconds(7)).click();
-        $("#loginModal").should(appear);
+                .shouldBe(visible, ofSeconds(14)).click();
+        $("#loginModal").shouldBe(visible);
     }
 
     public void fillEmail(String email)
@@ -75,7 +76,7 @@ public class HomepagePage extends BasePage
     public void checkLoginResponse(String cssSelector, String text)
     {
         // Is new element do not use prev one.
-        $(cssSelector).shouldBe(visible, ofSeconds(7))
+        $(cssSelector).shouldBe(visible, ofSeconds(30))
                 .shouldHave( text(text) );
     }
 

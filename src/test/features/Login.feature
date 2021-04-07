@@ -1,8 +1,7 @@
 
 @user
 Feature: Login
-  As user
-  I want to login and see success message
+  As user I want to login and see success or error message
 
 
   Scenario Outline: Login with invalid credentials

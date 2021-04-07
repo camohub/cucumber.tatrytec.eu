@@ -46,9 +46,8 @@ public class BasePage
 
     public void login(String email, String password)
     {
-        $("#sideMenu")
-                .shouldBe(visible, ofSeconds(14))
-                .find(byAttribute("data-target", "#loginModal")).click();
+        $("#sideMenu").find(byAttribute("data-target", "#loginModal"))
+                .shouldBe(visible, ofSeconds(14)).click();
 
         SelenideElement modal = $("#loginModal");
         modal.find( byName("email") ).val(email);

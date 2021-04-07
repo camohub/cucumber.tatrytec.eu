@@ -1,6 +1,6 @@
 
 @admin @maximize @articles
-Feature: Test articles filter
+Feature: Admin articles filter
 
 
   Scenario: Test filter by user name
