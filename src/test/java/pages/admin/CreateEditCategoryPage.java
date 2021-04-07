@@ -197,7 +197,9 @@ public class CreateEditCategoryPage extends BasePage
     public void checkIfSubcategoryIsInsideTheParentCategory(String parentText, String childText)
     {
         SelenideElement parentCategory = $$("#main .sortable li").find(text(parentText));
-        parentCategory.find(".fa-plus").click();
+        SelenideElement icon = parentCategory.find(".fa-plus").shouldBe(visible, ofSeconds(30));
+        sleep(1000);  // Because javascript sometimes is not prepared yet.
+        icon.click();
         parentCategory.find("ul li").shouldHave(text(childText));
     }
 
