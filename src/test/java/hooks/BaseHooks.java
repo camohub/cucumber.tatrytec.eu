@@ -46,12 +46,6 @@ public class BaseHooks
     /// @After /////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////
 
-    @After("@maximize")
-    public void maximizeOff()
-    {
-        Configuration.startMaximized = false;
-    }
-
 
     @After(order=5)  // @After hooks run in revert order - 3 2 1 0
     public void onFail()
@@ -62,6 +56,13 @@ public class BaseHooks
             String fileName = scenario.getName().replaceAll("[^\\w]+","-") + "-" + (new Date()).getTime();
             scenario.attach(data, "image/png", fileName);
         }
+    }
+
+
+    @After(value="@maximize", order=4)
+    public void maximizeOff()
+    {
+        Configuration.startMaximized = false;
     }
 
 
