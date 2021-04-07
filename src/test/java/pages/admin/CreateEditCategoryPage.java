@@ -42,10 +42,14 @@ public class CreateEditCategoryPage extends BasePage
 
     public void clickOnEditCategoryIcon(String text)
     {
-        $("#main").find(byAttribute("data-name", text))
-                .shouldBe(visible, ofSeconds(14)).click();
+        SelenideElement icon = $("#main").find(byAttribute("data-name", text))
+                .shouldBe(visible, ofSeconds(14));
 
-        $("#editCategoryFormModal").shouldBe(visible);
+        sleep(1000);
+
+        icon.click();
+
+        $("#editCategoryFormModal").shouldBe(visible, ofSeconds(14));
     }
 
 
