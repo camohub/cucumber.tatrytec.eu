@@ -1,5 +1,5 @@
 
-@admin @articles
+@admin @maximize @articles
 Feature: Create and edit article
   Try to create and edit article
 

@@ -1,5 +1,5 @@
 
-@homepage @maximize
+@homepage
 Feature: Test homepage elements
   Check all main elements on homepage
 

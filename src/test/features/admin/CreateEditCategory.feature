@@ -1,5 +1,5 @@
 
-@admin @categories
+@admin @maximize @categories
 Feature: Create and edit category
   Try to create/edit category
 
