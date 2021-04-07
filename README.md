@@ -34,16 +34,22 @@ Cucumber
   
 - features
     - parametre - dobrá ukážka parametrov je Login.feature
+  
 - steps 
     - @Before @After, príklad s parametrami je LoginSteps 
+  
 - hooks 
     - @Before @After
     - @tagy sa dajú použiť aj v hookoch napr. @maximize
     - poradie sa nastaví parametrom order=4
+  
 - tags
     - @tagmi sa dá otagovať celá feature alebo len scenario
     - používajú sa v runneroch na filtrovanie scenárov
     - používajú sa aj v hookoch na priradenie akcií ku tagom
+  
+- opakovanie kroku pri chybe
+    - príklad na opakovanie kroku je login
 
 Javascript
 ====================

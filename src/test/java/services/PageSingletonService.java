@@ -4,6 +4,7 @@ package services;
 
 import pages.HomepagePage;
 import pages.admin.AdminPage;
+import pages.admin.ArticlesFilterTablePage;
 import pages.admin.CreateEditArticlePage;
 import pages.admin.CreateEditCategoryPage;
 
@@ -18,6 +19,8 @@ public class PageSingletonService
     public static CreateEditArticlePage createEditArticlePage;
 
     public static CreateEditCategoryPage createEditCategoryPage;
+
+    public static ArticlesFilterTablePage articlesFilterTablePage;
 
 
     /**
@@ -50,6 +53,13 @@ public class PageSingletonService
         if( createEditCategoryPage == null ) createEditCategoryPage = new CreateEditCategoryPage();
 
         return createEditCategoryPage;
+    }
+
+    public static ArticlesFilterTablePage getArticlesFilterTablePage()
+    {
+        if( articlesFilterTablePage == null ) articlesFilterTablePage = new ArticlesFilterTablePage();
+
+        return articlesFilterTablePage;
     }
 
 }

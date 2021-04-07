@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import pages.admin.ArticlesFilterTablePage;
 import pages.admin.CreateEditArticlePage;
 import services.PageSingletonService;
 
@@ -12,9 +13,11 @@ import services.PageSingletonService;
 public class CreateEditArticleSteps extends BaseAdminSteps
 {
 
-    public String OPEN_ARTICLES_ADMIN_URL = "/admin/articles";
-
     CreateEditArticlePage createEditArticlePage;
+
+    ArticlesFilterTablePage articlesFilterTablePage;
+
+    public String OPEN_ARTICLES_ADMIN_URL = "/admin/articles";
 
     String testText = "Selenium test";
 
@@ -25,6 +28,7 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     public CreateEditArticleSteps()
     {
         createEditArticlePage = PageSingletonService.getCreateEditArticlePage();
+        articlesFilterTablePage = PageSingletonService.getArticlesFilterTablePage();
     }
 
 
@@ -53,7 +57,7 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     @When("Click on edit icon")
     public void clickOnEditArticleIcon()
     {
-        createEditArticlePage.clickOnEditArticleIcon(testText);
+        articlesFilterTablePage.clickOnEditArticleIcon(testText);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////
@@ -140,7 +144,7 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     @And("Check article exists")
     public void checkArticleExists()
     {
-        createEditArticlePage.checkArticleExists(testText);
+        articlesFilterTablePage.checkArticleExists(testText);
     }
 
     @Then("Check created title")
@@ -182,6 +186,6 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     @And("Check article has been updated")
     public void checkArticleHasBeenUpdated()
     {
-        createEditArticlePage.checkArticleExists(testText + " 2");
+        articlesFilterTablePage.checkArticleExists(testText + " 2");
     }
 }
