@@ -36,7 +36,7 @@ public class CreateEditCategoryPage extends BasePage
                 .find(byAttribute("data-target", "#editCategoryFormModal"))
                 .shouldBe(visible, ofSeconds(14)).click();
 
-        $("#editCategoryFormModal").should(appear);
+        $("#editCategoryFormModal").shouldBe(visible);
     }
 
 
@@ -45,7 +45,7 @@ public class CreateEditCategoryPage extends BasePage
         $("#main").find(byAttribute("data-name", text))
                 .shouldBe(visible, ofSeconds(14)).click();
 
-        $("#editCategoryFormModal").should(appear);
+        $("#editCategoryFormModal").shouldBe(visible);
     }
 
 
