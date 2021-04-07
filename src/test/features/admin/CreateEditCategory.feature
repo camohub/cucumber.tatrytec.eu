@@ -48,6 +48,7 @@ Feature: Create and edit category
     And Check parent category
 
 
+  @last
   Scenario: Test drag and drop categories sorting
     Given User is logged in and is on admin page
     When Click on edit categories link

@@ -35,6 +35,7 @@ Feature: Create and edit article
     Then Check error message related to title already exists
 
 
+  @last
   Scenario: Try to edit article
     Given User is logged in and is on admin page
     When Click on edit articles link

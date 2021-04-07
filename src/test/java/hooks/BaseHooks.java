@@ -53,7 +53,7 @@ public class BaseHooks
     }
 
 
-    @After(order=2)  // @After hooks run in revert order - 3 2 1 0
+    @After(order=5)  // @After hooks run in revert order - 3 2 1 0
     public void onFail()
     {
         if( scenario.isFailed() )
@@ -65,13 +65,20 @@ public class BaseHooks
     }
 
 
-    @After(/*value="@last", */order=1)  // @After hooks run in revert order - 3 2 1 0
-    public void tearDown()
+    @After(order=2)
+    public void deleteCookies()
+    {
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        driver.manage().deleteAllCookies();
+    }
+
+
+    @After(value="@last", order=1)  // @After hooks run in revert order - 3 2 1 0
+    public void closeWindow()
     {
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.close();
         driver.quit();
-        //BaseSteps.isLoggedIn = false;
     }
 
 }
