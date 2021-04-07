@@ -32,9 +32,13 @@ public class CreateEditCategoryPage extends BasePage
 
     public void openCreateCategoryForm()
     {
-        $("#main")
+        SelenideElement button = $("#main")
                 .find(byAttribute("data-target", "#editCategoryFormModal"))
-                .shouldBe(visible, ofSeconds(14)).click();
+                .shouldBe(visible, ofSeconds(14));
+
+        sleep(1000);
+
+        button.click();
 
         $("#editCategoryFormModal").shouldBe(visible);
     }
