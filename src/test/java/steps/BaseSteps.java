@@ -40,9 +40,8 @@ public class BaseSteps
         Configuration.remote = "http://127.0.0.1:4444";
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
-        Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
-        //Configuration.reportsFolder = "target/reports";  // Selenide .png/.html target/reports is default
+        //Configuration.reportsFolder = "target/reports/";  // Selenide .png/.html target/reports is default
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
         //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));

@@ -11,8 +11,6 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import services.ConfigSingletonService;
-import steps.BaseSteps;
-
 import java.util.Date;
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -31,7 +29,8 @@ public class BaseHooks
     @Before(order=1)
     public void setup(Scenario sc)
     {
-        scenario = sc;
+        // Bad idea!!! It seems this class instance is shared with all scenarios.
+        //scenario = sc;
     }
 
 
@@ -48,14 +47,15 @@ public class BaseHooks
 
 
     @After(order=5)  // @After hooks run in revert order - 3 2 1 0
-    public void onFail()
+    public void onFail(Scenario scenario)
     {
-        /*if( scenario.isFailed() )
+        // TODO: remove screenshots on success
+        if( scenario.isFailed() || !scenario.isFailed() )
         {
             byte[] data = screenshot(OutputType.BYTES);
             String fileName = scenario.getName().replaceAll("[^\\w]+","-") + "-" + (new Date()).getTime();
             scenario.attach(data, "image/png", fileName);
-        }*/
+        }
     }
 
 
