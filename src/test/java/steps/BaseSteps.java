@@ -83,10 +83,6 @@ public class BaseSteps
     }
 
 
-    // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
-    //@Rule
-    //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
-
     // This is the JUnit way how to catch fail event.
     //@Rule
     //public TestWatcher failWatcher = new TestWatcher();

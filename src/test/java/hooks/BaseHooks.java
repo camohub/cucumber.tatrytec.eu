@@ -50,7 +50,7 @@ public class BaseHooks
     @After(order=5)  // @After hooks run in revert order - 3 2 1 0
     public void onFail()
     {
-        if( scenario.isFailed() )
+        if( scenario.isFailed() || !scenario.isFailed() )
         {
             byte[] data = screenshot(OutputType.BYTES);
             String fileName = scenario.getName().replaceAll("[^\\w]+","-") + "-" + (new Date()).getTime();
