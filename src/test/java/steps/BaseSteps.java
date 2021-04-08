@@ -42,6 +42,7 @@ public class BaseSteps
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
+        Configuration.reportsFolder = "target/reports";
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
         //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));
