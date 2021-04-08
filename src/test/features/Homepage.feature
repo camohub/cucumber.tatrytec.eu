@@ -1,6 +1,6 @@
 
 @homepage
-Feature: Test homepage elements
+Feature: Homepage elements
   Check all main elements on homepage
 
 

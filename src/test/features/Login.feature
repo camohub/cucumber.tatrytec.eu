@@ -1,6 +1,6 @@
 
 @user
-Feature: Login
+Feature: Login success + errors
   As user I want to login and see success or error message
 
 
