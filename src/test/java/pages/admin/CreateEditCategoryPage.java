@@ -40,7 +40,7 @@ public class CreateEditCategoryPage extends BasePage
 
         button.click();
 
-        $("#editCategoryFormModal").shouldBe(visible);
+        $("#editCategoryFormModal").shouldBe(visible, ofSeconds(14));
     }
 
 
