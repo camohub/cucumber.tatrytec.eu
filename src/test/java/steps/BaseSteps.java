@@ -42,6 +42,7 @@ public class BaseSteps
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.reportsFolder = "target/reports/";
         Configuration.selectorMode = SelectorMode.Sizzle;
+        Configuration.reportsFolder = "target/reports";
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
         //System.setProperty("CUCUMBER_PUBLISH_TOKEN", conf.getString("cucumber-reports.token"));
@@ -88,8 +89,8 @@ public class BaseSteps
     //public TestWatcher failWatcher = new TestWatcher();
 
     // Set screenshots only on fail. This is extension of native JUnit TestWatcher like above.
-    //@Rule
-    //public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests();
+    @Rule
+    public ScreenShooter makeScreenshotOnFailure = ScreenShooter.failedTests().succeededTests();
 
     // Create test report as table.
     //@Rule
