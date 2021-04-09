@@ -14,7 +14,10 @@ import services.ConfigSingletonService;
 import java.util.Date;
 import static com.codeborne.selenide.Selenide.screenshot;
 
-
+/**
+ * This class and its instance is shared between scenarios!!!
+ * It means every instance variable is shared across the current running scenarios!!!
+ */
 public class BaseHooks
 {
 
