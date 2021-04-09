@@ -113,7 +113,7 @@ public class ArticlesFilterTablePage extends BasePage
         for (int i = 1; i < size; i++)  // Starts at index 1 to skip first tr
         {
             String dateString = trs.get(i).findAll("td").get(2).text();
-            Date date = getDateFromString("dd.MM. YYYY", dateString);
+            Date date = getDateFromString("dd.MM. yyyy", dateString);
 
             if (prevDate == null) prevDate = date;
 
@@ -133,7 +133,7 @@ public class ArticlesFilterTablePage extends BasePage
         for (int i = 1; i < size; i++)  // Starts at index 1 to skip first tr
         {
             String dateString = trs.get(i).findAll("td").get(2).text();
-            Date date = getDateFromString("dd.MM. YYYY", dateString);
+            Date date = getDateFromString("dd.MM. yyyy", dateString);
 
             if (prevDate == null) prevDate = date;
 
