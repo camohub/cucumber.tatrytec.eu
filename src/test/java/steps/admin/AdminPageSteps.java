@@ -25,6 +25,7 @@ public class AdminPageSteps extends BaseAdminSteps
         if( !elementExists(By.cssSelector("#alerts-wrapper .alert-success")) && ++loginsCount < 2)
         {
             logInAndOpenAdminPage();
+            return;
         }
 
         adminPage.clickOnAdminLink();
