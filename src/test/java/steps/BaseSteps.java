@@ -15,6 +15,7 @@ import pages.HomepagePage;
 import pages.admin.AdminPage;
 import services.ConfigSingletonService;
 import services.PageSingletonService;
+import services.WebDriverService;
 
 import java.time.Duration;
 
@@ -37,7 +38,8 @@ public class BaseSteps
 
 
     static {
-        Configuration.remote = "http://127.0.0.1:4444";
+        Configuration.remote = WebDriverService.BROWSERSTACK_HUB_URL;
+        Configuration.browserCapabilities = WebDriverService.getBrowserstackChromeOptions();
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.selectorMode = SelectorMode.Sizzle;

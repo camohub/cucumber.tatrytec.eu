@@ -6,6 +6,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,7 +18,10 @@ public class WebDriverService
     private static final String CHROME = "chrome";
     private static final String FIREFOX = "firefox";
 
-    public static final String HUB_URL = "http://127.0.0.1:4444/wd/hub";
+    public static final String HUB_URL = "http://127.0.0.1:4444";
+
+    // browserstack.com is third party Selenium server hub
+    public static final String BROWSERSTACK_HUB_URL = "https://vladimramaj1:LfPypf1dhvxbSNQsfV1X@hub-cloud.browserstack.com/wd/hub";
 
 
     /**
@@ -56,7 +60,8 @@ public class WebDriverService
      */
     private URL getRemoteUrl() throws MalformedURLException
     {
-        return new URL( HUB_URL );
+        //return new URL( HUB_URL );
+        return new URL( BROWSERSTACK_HUB_URL );
     }
 
 
@@ -69,5 +74,82 @@ public class WebDriverService
         //options.addArguments("disable-gpu");
 
         return options;
+    }
+
+
+    /**
+     * browserstack.com is third party Selenium server hub
+     * @return
+     */
+    public static DesiredCapabilities getBrowserstackChromeOptions()
+    {
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        caps.setCapability("os", "Windows");
+        caps.setCapability("os_version", "10");
+        caps.setCapability("browser", "Chrome");
+        caps.setCapability("browser_version", "88.0");
+        caps.setCapability("name", "Cucumber Tatrytec Browserstack test");
+
+        return caps;
+    }
+
+
+    /**
+     * browserstack.com is third party Selenium server hub
+     * TODO Does not work with Selenide from the box. May be some extension???
+     * @return
+     */
+    public static DesiredCapabilities getBrowserstackAndroidOptions()
+    {
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        caps.setCapability("browserName", "android");
+        caps.setCapability("device", "Samsung Samsung Galaxy A51");
+        caps.setCapability("realMobile", "true");
+        caps.setCapability("os_version", "10.0");
+        caps.setCapability("name", "Cucumber Tatrytec Browserstack test");
+        caps.setCapability("build", "Build Cucumber Tatrytec"); // CI/CD job or build name
+
+        return caps;
+    }
+
+
+    /**
+     * browserstack.com is third party Selenium server hub
+     * TODO Does not work with Selenide from the box. May be some extension???
+     * @return
+     */
+    public static DesiredCapabilities getBrowserstackIPhoneOptions()
+    {
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        caps.setCapability("browser", "iPhone");
+        caps.setCapability("device", "iPhone 12");
+        caps.setCapability("realMobile", "true");
+        caps.setCapability("os_version", "14");
+        caps.setCapability("name", "Cucumber Tatrytec Browserstack test");
+        caps.setCapability("build", "Build Cucumber Tatrytec"); // CI/CD job or build name
+
+        return caps;
+    }
+
+
+    /**
+     * browserstack.com is third party Selenium server hub
+     * @return
+     */
+    public static DesiredCapabilities getBrowserstackEdgeOptions()
+    {
+        DesiredCapabilities caps = new DesiredCapabilities();
+
+        caps.setCapability("os", "Windows");
+        caps.setCapability("os_version", "10");
+        caps.setCapability("browser", "Edge");
+        caps.setCapability("browser_version", "89.0");
+        caps.setCapability("name", "Cucumber Tatrytec Browserstack test");
+        caps.setCapability("build", "Build Cucumber Tatrytec"); // CI/CD job or build name
+
+        return caps;
     }
 }
