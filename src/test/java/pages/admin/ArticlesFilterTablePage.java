@@ -137,8 +137,6 @@ public class ArticlesFilterTablePage extends BasePage
 
             if (prevDate == null) prevDate = date;
 
-            System.out.println(trs.get(i).findAll("td").first().getText());
-
             if( prevDate.before(date) ) Assert.fail("Date " + date + " must not be after date " + prevDate);
 
             prevDate = date;
