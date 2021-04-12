@@ -38,8 +38,8 @@ public class BaseSteps
 
 
     static {
-        Configuration.remote = WebDriverService.BROWSERSTACK_HUB_URL;
-        Configuration.browserCapabilities = WebDriverService.getBrowserstackChromeOptions();
+        Configuration.remote = WebDriverService.HUB_URL;
+        //Configuration.browserCapabilities = WebDriverService.getBrowserstackChromeOptions();
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.headless = conf.getBoolean("env.production");
         Configuration.selectorMode = SelectorMode.Sizzle;
