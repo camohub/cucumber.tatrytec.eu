@@ -68,8 +68,8 @@ public class BaseSteps
     public void openPage(String url)
     {
         open(url);
-        WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(120, SECONDS);
-        WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(120, SECONDS);
+        //WebDriverRunner.getWebDriver().manage().timeouts().pageLoadTimeout(300, SECONDS);  // 300 should be default
+        WebDriverRunner.getWebDriver().manage().timeouts().setScriptTimeout(300, SECONDS);
     }
 
 
