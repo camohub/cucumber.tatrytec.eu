@@ -27,6 +27,11 @@ public class TestSteps extends BaseSteps
 
     @Then("Print test")
     public void printTest() {
-        System.out.println("Hello world!");
+        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+    }
+
+    @Then("Print test 2")
+    public void printTest2() {
+        System.out.println("bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
     }
 }
