@@ -11,8 +11,8 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
     features = "src/test/features/",
     glue = {"steps", "hooks"},
-    tags = "@homepage or @test",
-    plugin = {"pretty", "json:target/reports/cucumber.json", "html:target/reports/cucumber.html"}
+    tags = "@test",
+    plugin = {"pretty", "rerun:target/reports/failed.txt", "json:target/reports/cucumber.json", "html:target/reports/cucumber.html"}
 )
 public class FastRunner
 {

@@ -33,6 +33,13 @@
             </properties>
         </profile>
         <profile>
+            <id>failedTestCategory</id>
+            <properties>
+                <!-- Related to <category/> in <properties> -->
+                <category>runners.FailedTestsRunner</category>
+            </properties>
+        </profile>
+        <profile>
             <id>TestCategory</id>
             <properties>
                 <!-- Related to <category/> in <properties> -->

@@ -9,6 +9,11 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import static com.codeborne.selenide.Condition.exactText;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.sleep;
+import static java.time.Duration.ofSeconds;
+
 public class TestSteps extends BaseSteps
 {
 
@@ -22,6 +27,9 @@ public class TestSteps extends BaseSteps
     public void test() throws ParseException
     {
         System.out.println("Test");
+        openPage("http://localhost/drom");
+        $("h1").shouldHave( exactText("Drom"));
+        sleep(7000);
 
     }
 

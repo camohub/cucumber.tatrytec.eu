@@ -12,4 +12,3 @@ Feature: Test
   @last
   Scenario: Test cucumber 2
     When Test
-    Then Print test 2
