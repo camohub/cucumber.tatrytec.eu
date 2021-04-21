@@ -6,7 +6,6 @@ Feature: Test
 
   Scenario: Test cucumber
     When Test
-    Then Print test
 
 
   @last
