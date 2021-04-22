@@ -50,6 +50,14 @@ Cucumber
   
 - opakovanie kroku pri chybe
     - príklad na opakovanie kroku je login
+  
+- shell
+    - v adresári shell sú scripty, ktoré spúšťajú testy a úlohy pred a po testoch
+    - run-test a run-failed-test sú vytvorené kôli Jenkinsu. 
+      Jenkins totiž nevie spustiť mvn test build ako súčasť jedného väčšieho buildu,
+      ktorý obsahuje aj failed build. Musí sa to urobiť cez dva shelly 
+      a v nastavení Jenkinsu sa musia ignorovať chyby prvého buildu ak chceme zelené testy.
+      Toto nieje potrebné ak chceme červené testy prvého buildu vidieť ako červené.
 
 Javascript
 ====================
