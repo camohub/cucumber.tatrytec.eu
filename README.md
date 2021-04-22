@@ -67,9 +67,12 @@ Jenkins
   Bolo to treba upraviť v pom.xml
 
 - Shell
-    - v adresári shell sú scripty, ktoré spúšťajú testy a úlohy pred a po testoch
+    - v adresári shell sú scripty, ktoré spúšťajú testy 
+      a úlohy pred a po testoch
     - run-test a run-failed-test sú vytvorené kôli spúšťaniu failed testov.
-      Prvý regulérny MAVEN build totiž pri zlyhaní zafarbí celý výsledok na červeno. 
-      Ak chceme aby bol výsledok zafarbený podľa výsledku failed testov musí sa 
-      to urobiť cez dva shelly a prvý musí mať nastevené ignorovanie chýb buildu.
-      Toto nieje potrebné ak chceme červené testy prvého buildu vidieť ako červené aj vo výsledku.
+      Prvý regulérny MAVEN build totiž pri zlyhaní zafarbí celý výsledok 
+      na červeno. Ak chceme aby bol výsledok zafarbený podľa výsledku 
+      failed testov musí sa to urobiť cez dva shelly a prvý musí mať 
+      nastevené ignorovanie chýb buildu.
+      Toto nieje potrebné ak chceme červené testy prvého buildu vidieť ako 
+      červené aj vo výsledku.

@@ -1,7 +1,11 @@
 @echo off
 
-REM This script need to get ${testCategory} variable from Jenkins
-REM Do not run clean cause it deletes failed.txt file
-clean compile test surefire-report:report-only  -B -P${testCategory} -DBUILD_URL=${BUILD_URL}
+:: This script need to get %testCategory% variable from Jenkins
 
-REM exit 0
+mvn clean compile test surefire-report:report-only -B -P%testCategory% -DBUILD_URL=%BUILD_URL%
+
+echo [INFO] ------------------------------------------------------------------------
+echo [INFO]  All tests are done
+echo [INFO] ------------------------------------------------------------------------
+
+exit 0

@@ -32,7 +32,7 @@ public class BaseHooks
     @Before(order=1)
     public void setup(Scenario sc)
     {
-        // Bad idea!!! It seems this class instance is shared with all scenarios.
+        // BAD IDEA!!! It seems hooks class instance is a singleton shared with all scenarios.
         //scenario = sc;
     }
 
@@ -77,8 +77,11 @@ public class BaseHooks
 
 
     @After(value="@last", order=1)  // @After hooks run in revert order - 3 2 1 0
-    public void closeWindow()
+    public void closeWindow(Scenario scenario)
     {
+        System.out.println("[INFO] ------------------------------------------------------------------------");
+        System.out.println("[INFO]  Hook @After @last ");
+        System.out.println("[INFO] ------------------------------------------------------------------------");
         WebDriver driver = WebDriverRunner.getWebDriver();
         driver.close();
         driver.quit();
