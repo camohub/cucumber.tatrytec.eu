@@ -10,4 +10,4 @@ Feature: Test
 
   @last
   Scenario: Test cucumber 2
-    When Test
+    When Print test
