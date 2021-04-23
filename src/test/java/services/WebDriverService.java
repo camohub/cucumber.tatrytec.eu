@@ -2,7 +2,9 @@
 package services;
 
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.WebDriverRunner;
+import com.typesafe.config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -10,10 +12,13 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Locale;
 
 
 public class WebDriverService
 {
+
+    protected static Config conf = ConfigSingletonService.conf();  // resources/application.conf
 
     private static final String CHROME = "chrome";
     private static final String FIREFOX = "firefox";
@@ -26,29 +31,37 @@ public class WebDriverService
 
     /**
      * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
-     * @throws MalformedURLException
      */
-    public void setDriver() throws MalformedURLException
+    public static void setDriver()
     {
         String browser = System.getProperty("browser");
-        browser = browser == null ? "" : browser.toLowerCase();
-        WebDriver driver = null;
+        browser = browser == null ? CHROME : browser.toLowerCase();
 
-        if (browser.equals(CHROME))
-        {
-            driver = new RemoteWebDriver(this.getRemoteUrl(), new ChromeOptions());
-        }
-        else if (browser.equals(FIREFOX))
-        {
-            driver = new RemoteWebDriver(this.getRemoteUrl(), new FirefoxOptions());
-        }
-        else
-        {
-            driver = new RemoteWebDriver(this.getRemoteUrl(), getChromeOptions());
-        }
+        Configuration.remote = HUB_URL;
+        Configuration.browser = browser;
+        Configuration.headless = conf.getBoolean("env.production");
 
-        // SELENIDE needs this driver.
-        WebDriverRunner.setWebDriver(driver);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName(browser);
+        Configuration.browserCapabilities = capabilities;
+    }
+
+
+    public static void closeBrowser()
+    {
+        WebDriver driver = WebDriverRunner.getWebDriver();
+        driver.close();
+        if( !Configuration.browser.equals(FIREFOX) ) driver.quit();
+    }
+
+
+    public static DesiredCapabilities getDesiredCapabilities()
+    {
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setBrowserName("firefox");
+        caps.setCapability("browser", "firefox");
+
+        return caps;
     }
 
 

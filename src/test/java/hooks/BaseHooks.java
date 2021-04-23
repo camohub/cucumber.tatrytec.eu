@@ -11,6 +11,7 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import services.ConfigSingletonService;
+import services.WebDriverService;
 import java.util.Date;
 import static com.codeborne.selenide.Selenide.screenshot;
 
@@ -82,9 +83,7 @@ public class BaseHooks
         System.out.println("[INFO] ------------------------------------------------------------------------");
         System.out.println("[INFO]  Hook @After @last ");
         System.out.println("[INFO] ------------------------------------------------------------------------");
-        WebDriver driver = WebDriverRunner.getWebDriver();
-        driver.close();
-        driver.quit();
+        WebDriverService.closeBrowser();
     }
 
 }

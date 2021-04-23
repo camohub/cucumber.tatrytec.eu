@@ -38,11 +38,10 @@ public class BaseSteps
 
 
     static {
-        Configuration.remote = WebDriverService.HUB_URL;
-        //Configuration.browserCapabilities = WebDriverService.getBrowserstackChromeOptions();
+        WebDriverService.setDriver();
         Configuration.baseUrl = "https://tatrytec.eu";
-        Configuration.headless = conf.getBoolean("env.production");
         Configuration.selectorMode = SelectorMode.Sizzle;
+
         //Configuration.reportsFolder = "target/reports/";  // Selenide .png/.html target/reports is default
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
