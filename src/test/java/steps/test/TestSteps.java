@@ -26,11 +26,7 @@ public class TestSteps extends BaseSteps
     @When("Test")
     public void test() throws ParseException
     {
-        System.out.println("Test");
-        openPage("http://localhost/drom");
-        $("h1").shouldHave( exactText("Drom"));
-        sleep(7000);
-
+        homepagePage.testHeader();
     }
 
     @Then("Print test")
