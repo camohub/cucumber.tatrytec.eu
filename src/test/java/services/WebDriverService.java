@@ -35,7 +35,7 @@ public class WebDriverService
     public static void setDriver()
     {
         String browser = System.getProperty("browser");
-        browser = browser == null ? CHROME : browser.toLowerCase();
+        browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
 
         Configuration.remote = HUB_URL;
         Configuration.browser = browser;
