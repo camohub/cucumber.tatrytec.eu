@@ -38,12 +38,12 @@ public class WebDriverService
         String browser = System.getProperty("browser");
         browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
 
-        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Selenium\\Server\\geckodriver.exe");
+        System.setProperty("webdriver.gecko.driver", "/home/tatrytec/custom-scripts/selenium-server/geckodriver");
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         capabilities.setCapability("marionette",true);
 
         Configuration.remote = HUB_URL;
-        //Configuration.browser = browser;
+        Configuration.browser = browser;
         Configuration.headless = conf.getBoolean("env.production");
 
         //DesiredCapabilities capabilities = new DesiredCapabilities();
