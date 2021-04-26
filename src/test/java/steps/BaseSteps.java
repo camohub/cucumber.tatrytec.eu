@@ -17,6 +17,7 @@ import services.ConfigSingletonService;
 import services.PageSingletonService;
 import services.WebDriverService;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -38,7 +39,11 @@ public class BaseSteps
 
 
     static {
-        WebDriverService.setDriver();
+        try {
+            WebDriverService.setDriver();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.selectorMode = SelectorMode.Sizzle;
 

@@ -33,7 +33,7 @@ public class WebDriverService
     /**
      * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
      */
-    public static void setDriver()
+    public static void setDriver() throws MalformedURLException
     {
         String browser = System.getProperty("browser");
         browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
@@ -45,9 +45,10 @@ public class WebDriverService
         options.setHeadless(conf.getBoolean("env.production"));
 
         Configuration.remote = HUB_URL;
-        Configuration.browser = browser;
+        //Configuration.browser = browser;
         //Configuration.headless = conf.getBoolean("env.production");
-        WebDriver driver = new RemoteWebDriver(options);
+        URL hub = new URL(HUB_URL);
+        WebDriver driver = new RemoteWebDriver(hub, options);
         WebDriverRunner.setWebDriver(driver);
 
         //DesiredCapabilities capabilities = new DesiredCapabilities();
