@@ -39,7 +39,7 @@ public class WebDriverService
         browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
 
         System.setProperty("webdriver.gecko.driver", "/home/tatrytec/custom-scripts/selenium-server/geckodriver");
-        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         FirefoxOptions options = new FirefoxOptions();
         options.setCapability("marionette",true);
         options.setHeadless(conf.getBoolean("env.production"));
