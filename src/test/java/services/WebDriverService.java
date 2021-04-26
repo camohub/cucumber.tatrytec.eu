@@ -7,6 +7,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.typesafe.config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -37,12 +38,16 @@ public class WebDriverService
         String browser = System.getProperty("browser");
         browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
 
+        System.setProperty("webdriver.gecko.driver", "C:\\Program Files\\Selenium\\Server\\geckodriver.exe");
+        DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+        capabilities.setCapability("marionette",true);
+
         Configuration.remote = HUB_URL;
-        Configuration.browser = browser;
+        //Configuration.browser = browser;
         Configuration.headless = conf.getBoolean("env.production");
 
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName(browser);
+        //DesiredCapabilities capabilities = new DesiredCapabilities();
+        //capabilities.setBrowserName(browser);
         Configuration.browserCapabilities = capabilities;
     }
 
