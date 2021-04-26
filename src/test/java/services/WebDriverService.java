@@ -43,7 +43,7 @@ public class WebDriverService
         FirefoxOptions options = new FirefoxOptions();
         options.setCapability("marionette",true);
         options.setHeadless(conf.getBoolean("env.production"));
-        options.addArguments("--version");
+        options.addArguments("-version");
 
         Configuration.remote = HUB_URL;
         //Configuration.browser = browser;
