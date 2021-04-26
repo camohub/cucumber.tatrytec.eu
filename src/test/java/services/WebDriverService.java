@@ -40,15 +40,18 @@ public class WebDriverService
 
         System.setProperty("webdriver.gecko.driver", "/home/tatrytec/custom-scripts/selenium-server/geckodriver");
         DesiredCapabilities capabilities = DesiredCapabilities.firefox();
-        capabilities.setCapability("marionette",true);
+        FirefoxOptions options = new FirefoxOptions();
+        options.setCapability("marionette",true);
+        options.setHeadless(conf.getBoolean("env.production"));
 
         Configuration.remote = HUB_URL;
         Configuration.browser = browser;
-        Configuration.headless = conf.getBoolean("env.production");
+        //Configuration.headless = conf.getBoolean("env.production");
+        WebDriver driver = new RemoteWebDriver(options);
+        WebDriverRunner.setWebDriver(driver);
 
         //DesiredCapabilities capabilities = new DesiredCapabilities();
         //capabilities.setBrowserName(browser);
-        Configuration.browserCapabilities = capabilities;
     }
 
 
