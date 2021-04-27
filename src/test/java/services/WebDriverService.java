@@ -31,7 +31,7 @@ public class WebDriverService
 
 
     /**
-     * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
+     * If some error occurred which needs to debug, run Selenium serve in console manually so will see error messages.
      */
     public static void setDriver()
     {
