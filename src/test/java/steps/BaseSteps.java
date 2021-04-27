@@ -17,6 +17,7 @@ import services.ConfigSingletonService;
 import services.PageSingletonService;
 import services.WebDriverService;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.*;

@@ -7,6 +7,7 @@ import com.codeborne.selenide.WebDriverRunner;
 import com.typesafe.config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -30,7 +31,7 @@ public class WebDriverService
 
 
     /**
-     * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
+     * If some error occurred which needs to debug, run Selenium serve in console manually so will see error messages.
      */
     public static void setDriver()
     {
