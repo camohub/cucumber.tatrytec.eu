@@ -41,7 +41,6 @@ public class WebDriverService
         Configuration.remote = HUB_URL;
         Configuration.browser = browser;
         Configuration.headless = conf.getBoolean("env.production");
-        Configuration.browser = browser;
     }
 
 
