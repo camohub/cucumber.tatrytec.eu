@@ -43,6 +43,8 @@ public class BaseSteps
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.selectorMode = SelectorMode.Sizzle;
 
+        //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
         //Configuration.reportsFolder = "target/reports/";  // Selenide .png/.html target/reports is default
         //Configuration.screenshots = false;
         //Configuration.holdBrowserOpen = true;
