@@ -39,11 +39,7 @@ public class BaseSteps
 
 
     static {
-        try {
-            WebDriverService.setDriver();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        WebDriverService.setDriver();
         Configuration.baseUrl = "https://tatrytec.eu";
         Configuration.selectorMode = SelectorMode.Sizzle;
 

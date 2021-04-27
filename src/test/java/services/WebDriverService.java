@@ -33,26 +33,21 @@ public class WebDriverService
     /**
      * If does not use native Selenide driver we has to set it up in WebDriverRunner.setWebDriver(driver);
      */
-    public static void setDriver() throws MalformedURLException
+    public static void setDriver()
     {
         String browser = System.getProperty("browser");
         browser = browser == null || browser.equals("") ? CHROME : browser.toLowerCase();
 
         System.setProperty("webdriver.gecko.driver", "/home/tatrytec/custom-scripts/selenium-server/geckodriver");
-        //DesiredCapabilities capabilities = DesiredCapabilities.firefox();
         FirefoxOptions options = new FirefoxOptions();
         options.setCapability("marionette",true);
         options.setHeadless(conf.getBoolean("env.production"));
 
         Configuration.remote = HUB_URL;
-        //Configuration.browser = browser;
-        //Configuration.headless = conf.getBoolean("env.production");
-        URL hub = new URL(HUB_URL);
-        WebDriver driver = new RemoteWebDriver(hub, options);
+        Configuration.browser = browser;  // Necessary also for closeBrowser()
+        Configuration.headless = conf.getBoolean("env.production");
+        WebDriver driver = new RemoteWebDriver(options);
         WebDriverRunner.setWebDriver(driver);
-
-        //DesiredCapabilities capabilities = new DesiredCapabilities();
-        //capabilities.setBrowserName(browser);
     }
 
 
