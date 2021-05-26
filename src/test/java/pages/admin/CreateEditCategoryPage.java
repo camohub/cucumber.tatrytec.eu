@@ -202,13 +202,13 @@ public class CreateEditCategoryPage extends BasePage
     }
 
 
-    public void checkIfSubcategoryIsInsideTheParentCategory(String parentText, String childText)
+    public void checkIfSubcategoryIsInsideTheParentCategory(String subTitle, String parentTitle)
     {
-        SelenideElement parentCategory = $$("#main .sortable li").find(text(parentText));
+        SelenideElement parentCategory = $$("#main .sortable li").find(text(parentTitle));
         SelenideElement icon = parentCategory.find(".fa-plus").shouldBe(visible, ofSeconds(30));
         sleep(1000);  // Because javascript sometimes is not prepared yet.
         icon.click();
-        parentCategory.find("ul li").shouldHave(text(childText));
+        parentCategory.find("ul li").shouldHave(text(subTitle));
     }
 
 }

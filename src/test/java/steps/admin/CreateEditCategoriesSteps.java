@@ -160,8 +160,8 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     }
 
     @And("Check if category {string} is inside the category {string}")
-    public void checkIfTestCategoryIsInsideTheCategory(String parentTitle, String subTitle) throws InterruptedException
+    public void checkIfTestCategoryIsInsideTheCategory(String subTitle, String parentTitle) throws InterruptedException
     {
-        createEditCategoryPage.checkIfSubcategoryIsInsideTheParentCategory(parentTitle, subTitle);
+        createEditCategoryPage.checkIfSubcategoryIsInsideTheParentCategory(subTitle, parentTitle);
     }
 }
