@@ -186,7 +186,7 @@ public class CreateEditCategoryPage extends BasePage
     }
 
 
-    public void checkIfSubcategoryIsAboveTheParentCategory(String parentText, String childText)
+    public void checkIfSubcategoryIsAboveTheParentCategory(String parentTitle, String subTitle)
     {
         ElementsCollection lis = $$("#main .sortable li");
 
@@ -194,8 +194,8 @@ public class CreateEditCategoryPage extends BasePage
         Integer childIndex = null;
 
         for (int i = 0; i < lis.size(); i++) {
-            if( lis.get(i).getText().equals(parentText) ) parentIndex = i;
-            if( lis.get(i).getText().equals(childText) ) childIndex = i;
+            if( lis.get(i).getText().equals(parentTitle) ) parentIndex = i;
+            if( lis.get(i).getText().equals(subTitle) ) childIndex = i;
         }
 
         Assert.assertTrue("Subcategory should be above the parent category.", childIndex < parentIndex);
