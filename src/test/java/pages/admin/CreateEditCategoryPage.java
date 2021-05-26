@@ -180,7 +180,7 @@ public class CreateEditCategoryPage extends BasePage
     }
 
 
-    public void checkParentCategoryExists(String text)
+    public void checkParentCategoryIsSelected(String text)
     {
         $(byName("parent_id")).find(":selected").shouldHave(text(text));
     }

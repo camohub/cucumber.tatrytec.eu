@@ -15,12 +15,6 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
 
     CreateEditCategoryPage createEditCategoryPage;
 
-    public String categoryName = "Selenium test";
-
-    public String updatedCategoryName = "Selenium test update";
-
-    public String subCategoryName = "Selenium test subcategory";
-
 
     /**
      * Constructor
@@ -46,45 +40,36 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
         createEditCategoryPage.openCreateCategoryForm();
     }
 
-    @Then("Click on edit category icon")
-    public void clickOnEditCategoryIcon()
+    @Then("Click on category {string} edit icon")
+    public void clickOnEditSubCategoryIcon(String title)
     {
-        createEditCategoryPage.clickOnEditCategoryIcon(categoryName);
+        createEditCategoryPage.clickOnEditCategoryIcon(title);
     }
 
-    @Then("Click on edit subcategory icon")
-    public void clickOnEditSubCategoryIcon()
+    @Then("Click on category {string} list open icon")
+    public void clickOnListOpenIcon(String title)
     {
-        createEditCategoryPage.clickOnEditCategoryIcon(subCategoryName);
-    }
-
-    @Then("Click on list open icon")
-    public void clickOnListOpenIcon()
-    {
-        createEditCategoryPage.clickOnListOpenIcon(updatedCategoryName);
+        createEditCategoryPage.clickOnListOpenIcon(title);
     }
 
     /**
      * Current state is subCategory inside the parentCategory
      * Expected state is subCategory is outside and above the parentCategory
      */
-    @Then("Drag test subcategory out of parent category")
-    public void dragSubcategoryOutOfParentCategory()
+    @Then("Drag subcategory out of parent {string} category")
+    public void dragSubcategoryOutOfParentCategory(String parentTitle)
     {
-        String parentCategoryText = updatedCategoryName;
-        createEditCategoryPage.dragSubcategoryOutOfParentCategory(parentCategoryText);
+        createEditCategoryPage.dragSubcategoryOutOfParentCategory(parentTitle);
     }
 
     /**
      * Current state is subCategory is outside and above the parentCategory
      * Expected state is subCategory is back inside the parentCategory
      */
-    @Then("Drag test subcategory back inside the parent category")
-    public void dragSubCategoryBackToTheParentCategory()
+    @Then("Drag subcategory {string} back inside the parent {string} category")
+    public void dragSubCategoryBackToTheParentCategory(String subTitle, String parentTitle)
     {
-        String parentCategoryText = updatedCategoryName;
-        String subCategoryText = subCategoryName;
-        createEditCategoryPage.dragSubCategoryInsideTheParentCategory(parentCategoryText, subCategoryText);
+        createEditCategoryPage.dragSubCategoryInsideTheParentCategory(parentTitle, subTitle);
     }
 
     @Then("Save new categories order")
@@ -98,28 +83,16 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     /// FILL /////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
-    @And("Fill category name")
-    public void fillCategoryName()
+    @And("Fill category name {string}")
+    public void fillCategoryName(String title)
     {
-        createEditCategoryPage.fillName(categoryName);
+        createEditCategoryPage.fillName(title);
     }
 
-    @Then("Edit category name")
-    public void editCategoryName()
+    @And("Set parent category {string}")
+    public void setParentCategory(String title)
     {
-        createEditCategoryPage.fillName(updatedCategoryName);
-    }
-
-    @And("Fill subcategory name")
-    public void fillSubcategoryName()
-    {
-        createEditCategoryPage.fillName(subCategoryName);
-    }
-
-    @And("Set parent category")
-    public void setParentCategory()
-    {
-        createEditCategoryPage.fillParentCategory(updatedCategoryName);
+        createEditCategoryPage.fillParentCategory(title);
     }
 
     @And("Send category form")
@@ -138,10 +111,10 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
         createEditCategoryPage.checkSuccessMessage("Kategória bola uložená do databázy");
     }
 
-    @And("Check category exists")
-    public void checkCategoryExists()
+    @And("Check category exists {string}")
+    public void checkCategoryExists(String title)
     {
-        createEditCategoryPage.checkCategoryExists(categoryName);
+        createEditCategoryPage.checkCategoryExists(title);
     }
 
     @And("Check error message related to category already exists")
@@ -156,22 +129,22 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
         createEditCategoryPage.checkCategoryVisibility(false);
     }
 
-    @And("Check expected category name")
-    public void checkExpectedCategoryName()
+    @And("Check expected category name {string}")
+    public void checkExpectedCategoryName(String title)
     {
-        createEditCategoryPage.checkExpectedCategoryName(categoryName);
+        createEditCategoryPage.checkExpectedCategoryName(title);
     }
 
-    @And("Check category has been updated")
-    public void checkEditedCategoryName()
+    @And("Check category has been updated {string}")
+    public void checkEditedCategoryName(String title)
     {
-        createEditCategoryPage.checkCategoryExists(updatedCategoryName);
+        createEditCategoryPage.checkCategoryExists(title);
     }
 
-    @And("Check parent category")
-    public void checkParentCategory()
+    @And("Check parent category {string}")
+    public void checkParentCategory(String title)
     {
-        createEditCategoryPage.checkParentCategoryExists(updatedCategoryName);
+        createEditCategoryPage.checkParentCategoryIsSelected(title);
     }
 
     @Then("Check sort success message")
@@ -180,15 +153,15 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
         createEditCategoryPage.checkSuccessMessage("Poradie položiek bolo upravené");
     }
 
-    @And("Check if subcategory is above the parent category")
-    public void checkIfSubcategoryIsAboveTheParentCategory()
+    @And("Check if subcategory {string} is above the parent {string} category")
+    public void checkIfSubcategoryIsAboveTheParentCategory(String titleMain, String titleSub)
     {
-        createEditCategoryPage.checkIfSubcategoryIsAboveTheParentCategory(updatedCategoryName, subCategoryName);
+        createEditCategoryPage.checkIfSubcategoryIsAboveTheParentCategory(titleMain, titleSub);
     }
 
-    @And("Check if test category is inside the category")
-    public void checkIfTestCategoryIsInsideTheCategory() throws InterruptedException
+    @And("Check if category {string} is inside the category {string}")
+    public void checkIfTestCategoryIsInsideTheCategory(String parentTitle, String subTitle) throws InterruptedException
     {
-        createEditCategoryPage.checkIfSubcategoryIsInsideTheParentCategory(updatedCategoryName, subCategoryName);
+        createEditCategoryPage.checkIfSubcategoryIsInsideTheParentCategory(parentTitle, subTitle);
     }
 }

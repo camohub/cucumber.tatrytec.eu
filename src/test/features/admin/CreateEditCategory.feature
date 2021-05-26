@@ -8,59 +8,61 @@ Feature: Create and edit category
     Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
-    And Fill category name
+    And Fill category name "Selenium test"
     And Send category form
     Then Check success message
-    And Check category exists
+    And Check category exists "Selenium test"
     And Check category is not visible
 
 
+  # This has to be before scenario which tests existing category error
+  Scenario: Try to edit category
+    Given User is logged in and is on admin page
+    When Click on edit categories link
+    Then Click on category "Selenium test" edit icon
+    And Check expected category name "Selenium test"
+    Then Fill category name "Selenium test 2"
+    And Send category form
+    Then Check success message
+    Then Check category has been updated "Selenium test 2"
+
+
+  # This has to be after edit category
   Scenario: Try to create category with existing name
     Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
-    And Fill category name
+    And Fill category name "Selenium test 2"
     And Send category form
     Then Check error message related to category already exists
-
-
-  Scenario: Try to edit category
-    Given User is logged in and is on admin page
-    When Click on edit categories link
-    Then Click on edit category icon
-    And Check expected category name
-    Then Edit category name
-    And Send category form
-    Then Check success message
-    Then Check category has been updated
 
 
   Scenario: Create subcategory
     Given User is logged in and is on admin page
     When Click on edit categories link
     Then Click on create new category button
-    And Fill subcategory name
-    And Set parent category
+    And Fill category name "Selenium test subcategory"
+    And Set parent category "Selenium test 2"
     And Send category form
-    Then Click on list open icon
-    Then Click on edit subcategory icon
-    And Check category exists
-    And Check parent category
+    Then Click on category "Selenium test 2" list open icon
+    Then Click on category "Selenium test subcategory" edit icon
+    And Check category exists "Selenium test subcategory"
+    And Check parent category "Selenium test 2"
 
 
   @last
   Scenario: Test drag and drop categories sorting
     Given User is logged in and is on admin page
     When Click on edit categories link
-    Then Click on list open icon
-    Then Drag test subcategory out of parent category
+    Then Click on category "Selenium test 2" list open icon
+    Then Drag subcategory out of parent "Selenium test 2" category
     Then Save new categories order
     Then Check sort success message
-    And Check if subcategory is above the parent category
-    Then Drag test subcategory back inside the parent category
+    And Check if subcategory "Selenium test subcategory" is above the parent "Selenium test 2" category
+    Then Drag subcategory "Selenium test subcategory" back inside the parent "Selenium test 2" category
     Then Save new categories order
     Then Check sort success message
-    And Check if test category is inside the category
+    And Check if category "Selenium test subcategory" is inside the category "Selenium test 2"
 
 
 
