@@ -186,7 +186,7 @@ public class CreateEditCategoryPage extends BasePage
     }
 
 
-    public void checkIfSubcategoryIsAboveTheParentCategory(String parentTitle, String subTitle)
+    public void checkIfSubcategoryIsAboveTheParentCategory(String subTitle, String parentTitle)
     {
         ElementsCollection lis = $$("#main .sortable li");
 

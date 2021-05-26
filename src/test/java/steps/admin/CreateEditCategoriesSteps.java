@@ -154,9 +154,9 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     }
 
     @And("Check if subcategory {string} is above the parent {string} category")
-    public void checkIfSubcategoryIsAboveTheParentCategory(String parentTitle, String subTitle)
+    public void checkIfSubcategoryIsAboveTheParentCategory(String subTitle, String parentTitle)
     {
-        createEditCategoryPage.checkIfSubcategoryIsAboveTheParentCategory(parentTitle, subTitle);
+        createEditCategoryPage.checkIfSubcategoryIsAboveTheParentCategory(subTitle, parentTitle);
     }
 
     @And("Check if category {string} is inside the category {string}")
