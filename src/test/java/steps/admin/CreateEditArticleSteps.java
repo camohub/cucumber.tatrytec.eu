@@ -19,8 +19,6 @@ public class CreateEditArticleSteps extends BaseAdminSteps
 
     public String OPEN_ARTICLES_ADMIN_URL = "/admin/articles";
 
-    String testText = "Selenium test";
-
 
     /**
      * Constructor
@@ -54,68 +52,44 @@ public class CreateEditArticleSteps extends BaseAdminSteps
         adminPage.openEditArticlesPage();
     }
 
-    @When("Click on edit icon")
-    public void clickOnEditArticleIcon()
+    @When("Click on edit icon {string}")
+    public void clickOnEditArticleIcon(String title)
     {
-        articlesFilterTablePage.clickOnEditArticleIcon(testText);
+        articlesFilterTablePage.clickOnEditArticleIcon(title);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////
     /// FILL FORM /////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////
 
-    @And("Fill meta description")
-    public void fillMetaDescription()
+    @And("Fill meta description {string}")
+    public void fillMetaDescription(String desc)
     {
-        createEditArticlePage.fillMetaDesc(testText);
+        createEditArticlePage.fillMetaDesc(desc);
     }
 
-    @And("Fill title")
-    public void fillTitle()
+    @And("Fill title {string}")
+    public void fillTitle(String title)
     {
-        createEditArticlePage.fillTitle(testText);
+        createEditArticlePage.fillTitle(title);
     }
 
-    @And("Fill perex")
-    public void fillPerex()
+    @And("Fill perex {string}")
+    public void fillPerex(String perex)
     {
-        createEditArticlePage.fillPerex("<h2>" + testText + "</h2>");
+        createEditArticlePage.fillPerex("<h2>" + perex + "</h2>");
     }
 
-    @And("Fill text")
-    public void fillText()
+    @And("Fill text {string}")
+    public void fillText(String text)
     {
-        createEditArticlePage.fillText("<h2>" + testText + "</h2>");
+        createEditArticlePage.fillText("<h2>" + text + "</h2>");
     }
 
     @And("Fill categories")
     public void fillCategories()
     {
         createEditArticlePage.fillCategories("124", "125");
-    }
-
-    @Then("Edit meta description")
-    public void editMetaDescription()
-    {
-        createEditArticlePage.fillMetaDesc(testText + " 2");
-    }
-
-    @Then("Edit title")
-    public void editTitle()
-    {
-        createEditArticlePage.fillTitle(testText + " 2");
-    }
-
-    @Then("Edit perex")
-    public void editPerex()
-    {
-        createEditArticlePage.fillPerex("<h2>" + testText + " 2</h2>");
-    }
-
-    @Then("Edit text")
-    public void editText()
-    {
-        createEditArticlePage.fillText("<h2>" + testText + " 2</h2>");
     }
 
     @Then("Edit categories")
@@ -141,34 +115,34 @@ public class CreateEditArticleSteps extends BaseAdminSteps
         createEditArticlePage.checkSuccessMessage("Článok bol uložený");
     }
 
-    @And("Check article exists")
-    public void checkArticleExists()
+    @And("Check article exists {string}")
+    public void checkArticleExists(String title)
     {
-        articlesFilterTablePage.checkArticleExists(testText);
+        articlesFilterTablePage.checkArticleExists(title);
     }
 
-    @Then("Check created title")
-    public void checkTitleValue()
+    @Then("Check created title {string}")
+    public void checkTitleValue(String title)
     {
-        createEditArticlePage.checkArticleTitle(testText);
+        createEditArticlePage.checkArticleTitle(title);
     }
 
-    @Then("Check crated meta description")
-    public void checkMetaDescValue()
+    @Then("Check crated meta description {string}")
+    public void checkMetaDescValue(String desc)
     {
-        createEditArticlePage.checkArticleMetaDesc(testText);
+        createEditArticlePage.checkArticleMetaDesc(desc);
     }
 
-    @Then("Check crated perex")
-    public void checkPerexValue()
+    @Then("Check crated perex {string}")
+    public void checkPerexValue(String perex)
     {
-        createEditArticlePage.checkArticlePerex("<h2>" + testText + "</h2>");
+        createEditArticlePage.checkArticlePerex("<h2>" + perex + "</h2>");
     }
 
-    @Then("Check crated text")
-    public void checkTextValue()
+    @Then("Check crated text {string}")
+    public void checkTextValue(String text)
     {
-        createEditArticlePage.checkArticleText("<h2>" + testText + "</h2>");
+        createEditArticlePage.checkArticleText("<h2>" + text + "</h2>");
     }
 
     @Then("Check created categories")
@@ -183,9 +157,9 @@ public class CreateEditArticleSteps extends BaseAdminSteps
         createEditArticlePage.checkErrorMsg("Článok s rovnakým názvom už existuje");
     }
 
-    @And("Check article has been updated")
-    public void checkArticleHasBeenUpdated()
+    @And("Check article has been updated {string}")
+    public void checkArticleHasBeenUpdated(String title)
     {
-        articlesFilterTablePage.checkArticleExists(testText + " 2");
+        articlesFilterTablePage.checkArticleExists(title);
     }
 }
