@@ -25,7 +25,7 @@ public class ArticlePage extends BasePage
     public void clickOnFacebookLoginBtn()
     {
         //fakeMouseActions();
-        SelenideElement button = $("#facebookLogin").shouldBe(visible, ofSeconds(14));
+        SelenideElement button = $("#fbLogin").shouldBe(visible, ofSeconds(14));
         button.scrollTo().click();
     }
 
