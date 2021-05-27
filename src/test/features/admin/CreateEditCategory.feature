@@ -10,7 +10,7 @@ Feature: Create and edit category
     Then Click on create new category button
     And Fill category name "Selenium test"
     And Send category form
-    Then Check success message
+    Then Check success "Kategória bola uložená do databázy"
     And Check category exists "Selenium test"
     And Check category is not visible
 
@@ -23,7 +23,7 @@ Feature: Create and edit category
     And Check expected category name "Selenium test"
     Then Fill category name "Selenium test 2"
     And Send category form
-    Then Check success message
+    Then Check success "Kategória bola uložená do databázy"
     Then Check category has been updated "Selenium test 2"
 
 
@@ -34,7 +34,7 @@ Feature: Create and edit category
     Then Click on create new category button
     And Fill category name "Selenium test 2"
     And Send category form
-    Then Check error message related to category already exists
+    Then Check error "Kategória s rovnakým názvom už existuje"
 
 
   Scenario: Create subcategory
@@ -57,11 +57,11 @@ Feature: Create and edit category
     Then Click on category "Selenium test 2" list open icon
     Then Drag subcategory out of parent "Selenium test 2" category
     Then Save new categories order
-    Then Check sort success message
+    Then Check success "Poradie položiek bolo upravené"
     And Check if subcategory "Selenium test subcategory" is above the parent "Selenium test 2" category
     Then Drag subcategory "Selenium test subcategory" back inside the parent "Selenium test 2" category
     Then Save new categories order
-    Then Check sort success message
+    Then Check success "Poradie položiek bolo upravené"
     And Check if category "Selenium test subcategory" is inside the category "Selenium test 2"
 
 

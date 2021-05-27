@@ -37,16 +37,4 @@ public class LoginSteps extends BaseSteps
         homepagePage.fillPassword(validPassword);
         homepagePage.sendForm();
     }
-
-    @Then("See success message")
-    public void seeSuccessMessage()
-    {
-        homepagePage.checkLoginResponse("#alerts-wrapper .alert-success", "Vitajte na palube");
-    }
-
-    @Then("See error message")
-    public void seeErrorMessage()
-    {
-        homepagePage.checkLoginResponse("#loginModal .alert-danger", "Nesprávny email, alebo heslo.");
-    }
 }

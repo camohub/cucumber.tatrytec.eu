@@ -109,12 +109,6 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     /// CHECKS ///////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
-    @Then("Check article success message")
-    public void checkSuccessMessage()
-    {
-        createEditArticlePage.checkSuccessMessage("Článok bol uložený");
-    }
-
     @And("Check article exists {string}")
     public void checkArticleExists(String title)
     {
@@ -149,12 +143,6 @@ public class CreateEditArticleSteps extends BaseAdminSteps
     public void checkCategoriesValues()
     {
         createEditArticlePage.checkArticleCategories("124", "125");
-    }
-
-    @Then("Check error message related to title already exists")
-    public void checkErrorMessageTitleExists()
-    {
-        createEditArticlePage.checkErrorMsg("Článok s rovnakým názvom už existuje");
     }
 
     @And("Check article has been updated {string}")

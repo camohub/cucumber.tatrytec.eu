@@ -14,6 +14,12 @@ import static java.time.Duration.ofSeconds;
 public class HomepagePage extends BasePage
 {
 
+    public void openArticleDetail()
+    {
+        $("#main").find("h1 a").shouldBe(visible, ofSeconds(14)).click();
+    }
+
+
     public void testHeader()
     {
         SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"), ofSeconds(14));

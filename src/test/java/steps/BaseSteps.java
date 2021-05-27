@@ -16,7 +16,7 @@ import pages.admin.AdminPage;
 import services.ConfigSingletonService;
 import services.PageSingletonService;
 import services.WebDriverService;
-
+import static com.codeborne.selenide.CollectionCondition.*;
 import java.net.MalformedURLException;
 import java.time.Duration;
 
@@ -73,13 +73,12 @@ public class BaseSteps
     }
 
 
-    public Boolean elementExists(By by)
+    public static Boolean elementExists(By by, Integer seconds)
     {
         try {
-            int size = $$(by).shouldHave(CollectionCondition.sizeGreaterThan(0), ofSeconds(30)).size();
+            int size = $$(by).shouldHave(sizeGreaterThan(0), ofSeconds(seconds)).size();
             return true;
-        } catch ( Throwable e )
-        {
+        } catch ( Throwable e ) {
             return false;
         }
     }

@@ -13,7 +13,7 @@ Feature: Create and edit article
     And Fill text "Selenium test"
     And Fill categories
     And Send form
-    Then Check article success message
+    Then Check success "Článok bol uložený"
     And Check article exists "Selenium test"
     Then Click on edit icon "Selenium test"
     And Check created title "Selenium test"
@@ -33,7 +33,7 @@ Feature: Create and edit article
     And Fill text "Selenium test 2"
     And Edit categories
     And Send form
-    Then Check article success message
+    Then Check success
     And Check article has been updated "Selenium test 2"
 
 
@@ -47,5 +47,5 @@ Feature: Create and edit article
     And Fill text "Selenium test 2"
     And Fill categories
     And Send form
-    Then Check error message related to title already exists
+    Then Check error "Článok s rovnakým názvom už existuje"
 

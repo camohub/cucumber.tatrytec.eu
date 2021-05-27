@@ -22,7 +22,7 @@ public class AdminPageSteps extends BaseAdminSteps
         homepagePage.login(conf.getString("login.email"), conf.getString("login.password"));
 
         // Sometimes login is invalid so lets try it ones again.
-        if( !elementExists(By.cssSelector("#alerts-wrapper .alert-success")) && ++loginsCount < 2)
+        if( !elementExists(By.cssSelector("#alerts-wrapper .alert-success"), 30) && ++loginsCount < 2)
         {
             logInAndOpenAdminPage();
             return;

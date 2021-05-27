@@ -105,22 +105,10 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     /// CHECK ////////////////////////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////////////////////////////////
 
-    @Then("Check success message")
-    public void checkSuccessMessage()
-    {
-        createEditCategoryPage.checkSuccessMessage("Kategória bola uložená do databázy");
-    }
-
     @And("Check category exists {string}")
     public void checkCategoryExists(String title)
     {
         createEditCategoryPage.checkCategoryExists(title);
-    }
-
-    @And("Check error message related to category already exists")
-    public void checkErrorMessage()
-    {
-        createEditCategoryPage.checkErrorMsg("Kategória s rovnakým názvom už existuje");
     }
 
     @And("Check category is not visible")
@@ -145,12 +133,6 @@ public class CreateEditCategoriesSteps extends BaseAdminSteps
     public void checkParentCategory(String title)
     {
         createEditCategoryPage.checkParentCategoryIsSelected(title);
-    }
-
-    @Then("Check sort success message")
-    public void checkSortSuccessMessage()
-    {
-        createEditCategoryPage.checkSuccessMessage("Poradie položiek bolo upravené");
     }
 
     @And("Check if subcategory {string} is above the parent {string} category")

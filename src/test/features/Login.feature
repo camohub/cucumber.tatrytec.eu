@@ -8,7 +8,7 @@ Feature: Login success + errors
     Given Open homepage
     When Open login modal
     And Fill and send invalid login form <email> <password>
-    Then See error message
+    Then Check error "Nesprávny email, alebo heslo."
     Examples:
       | email       | password   |
       | aaaa@aaa.aa | aaaaaaaaaa |
@@ -22,4 +22,4 @@ Feature: Login success + errors
     Given Open homepage
     When Open login modal
     When Fill and send valid login form
-    Then See success message
+    Then Check success "Vitajte na palube"

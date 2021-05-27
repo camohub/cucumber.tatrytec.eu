@@ -30,12 +30,22 @@ public class BasePage
     /// BASE MESSAGE USED ACROSS THE PAGES /////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////
 
+    public void checkSuccess()
+    {
+        $("#alerts-wrapper").find(".alert-success").shouldBe(visible, ofSeconds(14));
+    }
+
     public void checkSuccessMessage(String text)
     {
         $("#alerts-wrapper").find(".alert-success").shouldHave(text(text), ofSeconds(14));
     }
 
-    public void checkErrorMsg(String text)
+    public void checkError()
+    {
+        $(".alert-danger").shouldBe(visible, ofSeconds(14));
+    }
+
+    public void checkErrorMessage(String text)
     {
         $(".alert-danger").shouldHave(text(text), ofSeconds(14));
     }

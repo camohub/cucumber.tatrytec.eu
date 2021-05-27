@@ -4,6 +4,7 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import pages.HomepagePage;
 import services.PageSingletonService;
 
@@ -20,6 +21,13 @@ public class HomepageSteps extends BaseSteps
     public void openHomepage()
     {
         openPage(OPEN_URL);
+    }
+
+
+    @Given("Open article detail")
+    public void openArticleDetail()
+    {
+        homepagePage.openArticleDetail();
     }
 
 
@@ -49,6 +57,4 @@ public class HomepageSteps extends BaseSteps
     {
         homepagePage.testPagination();
     }
-
-
 }
