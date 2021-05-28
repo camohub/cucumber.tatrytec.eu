@@ -12,12 +12,12 @@ Feature: Login via social networks - Github, Google, Facebook
     Then Check success
 
 
-  Scenario: Login with Facebook
-    Given Open homepage
-    When Open article detail
-    And Click on Facebook login button
-    And Fill Github login form
-    Then Check error "Používateľ so zadaným emailom je už zaregistrovaný cez github"
+#  Scenario: Login with Facebook
+#    Given Open homepage
+#    When Open article detail
+#    And Click on Facebook login button
+#    And Fill Github login form
+#    Then Check error "Používateľ so zadaným emailom je už zaregistrovaný cez github"
 
 
 #  Scenario: Login with Google
