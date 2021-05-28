@@ -4,12 +4,12 @@ Feature: Login via social networks - Github, Google, Facebook
   As user I want to login and see success or error message
 
 
-  Scenario: Login with Github
-    Given Open homepage
-    When Open article detail
-    And Click on Github login button
-    And Fill Github login form
-    Then Check success
+#  Scenario: Login with Github
+#    Given Open homepage
+#    When Open article detail
+#    And Click on Github login button
+#    And Fill Github login form
+#    Then Check success
 
 
 #  Scenario: Login with Facebook
