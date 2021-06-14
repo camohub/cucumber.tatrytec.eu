@@ -40,6 +40,15 @@ public class ArticlesFilterTablePage extends BasePage
         icon.click();
     }
 
+    public void clickOnArticleCommentsIcon()
+    {
+        SelenideElement tr = $$("#main table tr")
+                .findBy(text(commentArticleTitle))
+                .shouldBe(visible, ofSeconds(14));
+
+        tr.find("a.fa-commenting-o").shouldBe(visible, ofSeconds(14)).click();
+    }
+
     ////////////////////////////////////////////////////////////////////////////////////////
     /// Fill //////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////

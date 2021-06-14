@@ -3,10 +3,7 @@ package services;
 
 
 import pages.*;
-import pages.admin.AdminPage;
-import pages.admin.ArticlesFilterTablePage;
-import pages.admin.CreateEditArticlePage;
-import pages.admin.CreateEditCategoryPage;
+import pages.admin.*;
 
 
 public class PageSingletonService
@@ -23,6 +20,8 @@ public class PageSingletonService
     public static CreateEditCategoryPage createEditCategoryPage;
 
     public static ArticlesFilterTablePage articlesFilterTablePage;
+
+    public static ArticleCommentsPage adminArticleCommentsPage;
 
     public static GoogleLoginPage googleLoginPage;
 
@@ -69,6 +68,12 @@ public class PageSingletonService
     {
         if( articlesFilterTablePage == null ) articlesFilterTablePage = new ArticlesFilterTablePage();
         return articlesFilterTablePage;
+    }
+
+    public static ArticleCommentsPage getAdminArticleCommentsPage()
+    {
+        if( adminArticleCommentsPage == null ) adminArticleCommentsPage = new ArticleCommentsPage();
+        return adminArticleCommentsPage;
     }
 
     public static GoogleLoginPage getGoogleLoginPage()

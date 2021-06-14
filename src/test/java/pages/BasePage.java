@@ -18,6 +18,9 @@ import static java.time.Duration.ofSeconds;
 public class BasePage
 {
 
+    public static String commentArticleTitle;
+
+
     /**
      * Constructor
      */

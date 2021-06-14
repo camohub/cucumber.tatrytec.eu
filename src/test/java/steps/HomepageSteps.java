@@ -5,6 +5,7 @@ package steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openqa.selenium.By;
 import pages.HomepagePage;
 import services.PageSingletonService;
 
@@ -15,6 +16,8 @@ public class HomepageSteps extends BaseSteps
 {
 
     public String OPEN_URL = "?test=parameter";
+
+    private int loginsCount = 0;
 
 
     @Given("Open homepage")
@@ -28,6 +31,21 @@ public class HomepageSteps extends BaseSteps
     public void openArticleDetail()
     {
         homepagePage.openArticleDetail();
+    }
+
+
+    @Given("User is logged in")
+    public void logIn()
+    {
+        openPage(OPEN_URL);
+        homepagePage.login(conf.getString("login.email"), conf.getString("login.password"));
+
+        // Sometimes login is invalid so lets try it ones again.
+        if( !elementExists(By.cssSelector("#alerts-wrapper .alert-success"), 30) && ++loginsCount < 2)
+        {
+            logIn();
+            return;
+        }
     }
 
 
