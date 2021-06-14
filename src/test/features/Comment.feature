@@ -1,6 +1,6 @@
 
 @comments
-Feature: Homepage elements
+Feature: Article comments
   Check comments functionality
 
 
