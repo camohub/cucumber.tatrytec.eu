@@ -76,7 +76,8 @@ Jenkins
       nastevené ignorovanie chýb buildu.
       Toto nieje potrebné ak chceme červené testy prvého buildu vidieť ako 
       červené aj vo výsledku.
-      
+   
+   
 Deploy
 =======================
 V Githube je nastavený webhook na pipelinu v Jenkinse,
