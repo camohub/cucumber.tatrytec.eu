@@ -22,7 +22,7 @@ public class HomepagePage extends BasePage
 
     public void testHeader()
     {
-        SelenideElement header = $("#header").shouldHave( exactText("xxxTatrytec.eu"), ofSeconds(14));
+        SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"), ofSeconds(14));
     }
 
 
