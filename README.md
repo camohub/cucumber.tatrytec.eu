@@ -77,7 +77,6 @@ Jenkins
       Toto nieje potrebné ak chceme červené testy prvého buildu vidieť ako 
       červené aj vo výsledku.
    
-   
 
 Deploy
 =======================
