@@ -78,6 +78,7 @@ Jenkins
       červené aj vo výsledku.
    
    
+
 Deploy
 =======================
 V Githube je nastavený webhook na pipelinu v Jenkinse,
