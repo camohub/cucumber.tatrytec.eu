@@ -194,8 +194,9 @@ public class CreateEditCategoryPage extends BasePage
         Integer childIndex = null;
 
         for (int i = 0; i < lis.size(); i++) {
-            if( lis.get(i).getText().equals(parentTitle) ) parentIndex = i;
-            if( lis.get(i).getText().equals(subTitle) ) childIndex = i;
+            System.out.println(lis.get(i).getText());
+            if( lis.get(i).getText().startsWith(parentTitle) ) parentIndex = i;
+            if( lis.get(i).getText().startsWith(subTitle) ) childIndex = i;
         }
 
         Assert.assertTrue("Subcategory should be above the parent category.", childIndex < parentIndex);
