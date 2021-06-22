@@ -23,8 +23,14 @@ public class HomepageSteps extends BaseSteps
 
 
     @Given("Open homepage")
-    public void openHomepage()
+    public void openHomepage() throws IOException
     {
+
+        System.out.println("*****************************************************");
+        System.out.println("*****************************************************");
+        System.out.println(Runtime.getRuntime().exec("whoami"));
+        System.out.println("*****************************************************");
+        System.out.println("*****************************************************");
         openPage(OPEN_URL);
     }
 
@@ -52,7 +58,7 @@ public class HomepageSteps extends BaseSteps
 
 
     @And("Check header")
-    public void checkHeader() throws IOException
+    public void checkHeader()
     {
         homepagePage.testHeader();
     }
