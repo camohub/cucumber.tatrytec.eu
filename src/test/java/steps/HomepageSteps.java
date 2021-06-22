@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import pages.HomepagePage;
 import services.PageSingletonService;
 
+import java.io.PrintStream;
+
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -23,6 +25,11 @@ public class HomepageSteps extends BaseSteps
     @Given("Open homepage")
     public void openHomepage()
     {
+        System.out.println("*************************************************");
+        System.out.println("*************************************************");
+        System.setOut(new PrintStream(Runtime.getRuntime().exec("whoami").getOutputStream()));
+        System.out.println("*************************************************");
+        System.out.println("*************************************************");
         openPage(OPEN_URL);
     }
 
