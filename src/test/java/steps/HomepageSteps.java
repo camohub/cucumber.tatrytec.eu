@@ -8,9 +8,7 @@ import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
 import pages.HomepagePage;
 import services.PageSingletonService;
-
 import java.io.PrintStream;
-
 import static com.codeborne.selenide.Selenide.$;
 
 
