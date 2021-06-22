@@ -4,13 +4,8 @@ package steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
 import org.openqa.selenium.By;
-import pages.HomepagePage;
-import services.PageSingletonService;
 import java.io.IOException;
-import java.io.PrintStream;
-import static com.codeborne.selenide.Selenide.$;
 
 
 public class HomepageSteps extends BaseSteps
