@@ -27,6 +27,7 @@ public class HomepageSteps extends BaseSteps
     {
         System.out.println("*************************************************");
         System.out.println("*************************************************");
+        System.out.println("*************************************************");
         System.setOut(new PrintStream(Runtime.getRuntime().exec("whoami").getOutputStream()));
         System.out.println("*************************************************");
         System.out.println("*************************************************");
