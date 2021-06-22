@@ -4,7 +4,7 @@
 
 mvn clean compile test surefire-report:report-only  -B -P${testCategory} -DBUILD_URL=${BUILD_URL} -Dbrowser=${browser}
 
-echo whoami
+whoami
 
 echo "[INFO] ------------------------------------------------------------------------"
 echo "[INFO]  All tests are done"
