@@ -9,6 +9,8 @@ import org.openqa.selenium.By;
 import pages.HomepagePage;
 import services.PageSingletonService;
 
+import java.io.IOException;
+
 import static com.codeborne.selenide.Selenide.$;
 
 
@@ -50,7 +52,7 @@ public class HomepageSteps extends BaseSteps
 
 
     @And("Check header")
-    public void checkHeader()
+    public void checkHeader() throws IOException
     {
         homepagePage.testHeader();
     }

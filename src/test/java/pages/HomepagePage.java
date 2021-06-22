@@ -3,6 +3,9 @@ package pages;
 
 
 import com.codeborne.selenide.*;
+
+import java.io.IOException;
+
 import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byAttribute;
@@ -20,9 +23,10 @@ public class HomepagePage extends BasePage
     }
 
 
-    public void testHeader()
+    public void testHeader() throws IOException
     {
         SelenideElement header = $("#header").shouldHave( exactText("Tatrytec.eu"), ofSeconds(14));
+        System.out.println(Runtime.getRuntime().exec("whoami"));
     }
 
 

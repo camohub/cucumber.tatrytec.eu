@@ -5,6 +5,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.HomepagePage;
 import steps.BaseSteps;
+
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -24,7 +26,7 @@ public class TestSteps extends BaseSteps
     }
 
     @When("Test")
-    public void test() throws ParseException
+    public void test() throws ParseException, IOException
     {
         homepagePage.testHeader();
     }
