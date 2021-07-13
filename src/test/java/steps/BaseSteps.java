@@ -40,7 +40,7 @@ public class BaseSteps
 
     static {
         WebDriverService.setDriver();
-        Configuration.baseUrl = "https://tatrytec.eu";
+        Configuration.baseUrl = "https://tatrytec.eu/najnovsie";
         Configuration.selectorMode = SelectorMode.Sizzle;
 
         //Configuration.reportsFolder = "target/reports/";  // Selenide .png/.html target/reports is default
