@@ -42,7 +42,7 @@ public class ArticlesFilterTablePage extends BasePage
 
     public void clickOnArticleCommentsIcon()
     {
-        SelenideElement tr = $$("#main table tr a")
+        SelenideElement tr = $$("#main table tr")
                 .findBy(text(commentArticleTitle))
                 .shouldBe(visible, ofSeconds(14));
 
