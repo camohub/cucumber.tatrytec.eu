@@ -17,7 +17,7 @@ public class CreateEditArticleSteps extends BaseAdminSteps
 
     ArticlesFilterTablePage articlesFilterTablePage;
 
-    public String OPEN_ARTICLES_ADMIN_URL = "/admin/articles";
+    public String OPEN_ARTICLES_ADMIN_URL = "https://tatrytec.eu/admin/articles";
 
 
     /**
